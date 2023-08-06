@@ -104,9 +104,9 @@ analytics:
 
 # Site Author
 author:
-  name             : "Arthur Ross"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "ik help een beetje"
+  name             : Arthur Ross
+  avatar           : assets/images/Arthur.jpg
+  bio              : "Ik help een beetje"
   location         : "Leiden"
   email            :
   links:
