@@ -1,10 +1,10 @@
 # main links
 main:
-  - title: "Over"
+  - title: Over
     url: https://mmistakes.github.io/minimal-mistakes/about/
   # - title: "Sample Posts"
   #   url: /year-archive/
-  - title: "Collectie"
-    url: /collection-archive/
-  # - title: "Sitemap"
-  #   url: /sitemap/
+  - title: Collectie
+    url: /docs/_pages/collection.md
+  - title: Recipes
+    url: /recipes/
