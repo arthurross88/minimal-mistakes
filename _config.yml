@@ -10,17 +10,17 @@
 # Review documentation to determine if you should use `theme` or `remote_theme`
 # https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/#installing-the-theme
 
-theme                    : "minimal-mistakes-jekyll"
+theme                    : minimal-mistakes-jekyll
 #remote_theme             : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "sunrise" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : dark # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
-locale                   : "en-US"
+locale                   : "nl-NL"
 title                    : "The Eternal Gods of the Flame"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "Miguel Plukker"
-description              : "Portfolio van mijn collages"
+name                     : "Arthur Ross"
+description              : "Gemaakt door Arthur Ross"
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -39,7 +39,7 @@ comments:
     # https://developers.facebook.com/docs/plugins/comments
     appid                :
     num_posts            : # 5 (default)
-    colorscheme          : # "light" (default), "dark"
+    colorscheme          : dark
   utterances:
     theme                : # "github-light" (default), "github-dark"
     issue_term           : # "pathname" (default)
@@ -104,10 +104,10 @@ analytics:
 
 # Site Author
 author:
-  name             : Arthur Ross
-  avatar           : assets/images/Arthur.jpg
-  bio              : "Ik help een beetje"
-  location         : "Leiden"
+  name             : Miguel Plukker
+  avatar           : #/assets/images/Arthur.jpg
+  bio              : Mooie collages!
+  location         : "Lisse"
   email            :
   links:
     - label: "Email"
