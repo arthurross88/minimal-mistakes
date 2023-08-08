@@ -4,7 +4,7 @@ main:
     url: https://mmistakes.github.io/minimal-mistakes/about/
   # - title: "Sample Posts"
   #   url: /year-archive/
+  #- title: Collectie
+  #  url: /collection.md
   - title: Collectie
-    url: /docs/_pages/collection.md
-  - title: Recipes
     url: /recipes/
