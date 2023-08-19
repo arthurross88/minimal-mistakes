@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../jekyll-ideal-image-slider"
+		},
+		{
+			"path": "../Ideal-Image-Slider-JS"
+		},
+		{
+			"path": "../jekyll-ideal-image-slider-include"
+		}
+	],
+	"settings": {}
+}
