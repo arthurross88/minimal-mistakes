@@ -1,13 +1,43 @@
 ---
 layout: home
-carousels:
-  - images:
-    - image: /assets/images/kalei.jpeg
-    - image: /assets/images/halo.jpeg
-    - image: /assets/images/kaleidoscope.jpeg
-    - image: /assets/images/miguel_foto.jpeg
 ---
+<!-- ... same as before ... -->
+<style>
+  .fade-out-element {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center; /* Center children vertically */
+    align-items: center; /* Center children horizontally */
+    height: 100vh; /* Set the height to full viewport height */
+  }
 
-  {% include carousel.html height="50" unit="%" duration="7" number="1" %}
-
-  {% include carousel.html height="100" unit="%" duration="7" number="2" %}
+  .go-to-collection {
+    margin-top: 20px; /* Adjust the margin as needed */
+  }
+</style>
+<head>
+  <!-- other head elements -->
+</head>
+<body>
+  <div class="fade-in-out">
+    <div class="fullscreen-container">
+      <div class="fade-out-element">
+        <img
+          src="{{ site.baseurl }}/assets/images/gallery/halo.jpeg"
+          alt="Fullscreen Image"
+          class="fullscreen-image fade-out"
+        />
+        <!-- Introductory Text Section -->
+        <div class="intro-text">
+          <h1>Welcome to My Website</h1>
+          <p>
+            <!-- ... your content ... -->
+          </p>
+        </div>
+        <!-- End Introductory Text Section -->
+        <script src="{{ site.baseurl }}/assets/recipes/script.js"></script>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

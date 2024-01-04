@@ -18,7 +18,7 @@ minimal_mistakes_skin    : dark # "air", "aqua", "contrast", "dark", "dirt", "ne
 locale                   : nl-NL
 title                    : The Eternal Fire Of The Gods
 title_separator          : "-"
-subtitle                 : site tagline that appears below site title in masthead
+subtitle                 : Tha best art in the world!
 name                     : Arthur Ross
 description              : Gemaakt door Arthur Ross
 #url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
@@ -59,7 +59,8 @@ words_per_minute         : 200
  #atom_feed:
  # path                   : # blank (default) uses feed.xml
   #hide                   : # true, false (default)
- #search                   : # true, false (default)
+ # trunk-ignore(yamllint/syntax)
+#search                   : true #false (default)
  #search_full_content      : # true, false (default)
  #search_provider          : # lunr (default), algolia, google
  #lunr:
@@ -111,7 +112,7 @@ author:
   links:
     - label: Email
       icon: fas fa-fw fa-envelope-square
-      # url: "mailto:your.name@email.com"
+      url: arthurross@live.nl
     - label: Website
       icon: fas fa-fw fa-link
       # url: "https://your-website.com"
@@ -155,6 +156,7 @@ footer:
 include:
   - .htaccess
   - _pages
+  - _data
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
@@ -359,3 +361,6 @@ responsive_image:
     - assets/avatars/*.{jpeg,jpg}
 
 iis_slider_array: []
+
+imagesurl: /mysite/img/
+thumbsurl: /mysite/thumbs/
