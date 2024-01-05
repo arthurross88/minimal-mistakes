@@ -50,9 +50,8 @@ permalink: /page2.md/
   src="{{ site.baseurl }}/assets/images/gallery/halo.jpeg" 
   alt="Description of Small Image" 
   class="small-image"
-  style="width: 400px; height: auto;"
+  style="width: 180px; height: auto;"
 />
-
             <p>Within the series: Sun & Spring Kaleidoscope
 
 Radiant model in this work: Louïs Rault Watanabe Louïs Rault Watanabe @louisrault (IG)
