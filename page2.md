@@ -65,11 +65,6 @@ And until we come back to realizing to need no thing but love and all the beauty
 Text by: The Eternal Fire Of The Gods - Miguel Angel Plukkel</p>
           </div>
           <!-- End New Text Section -->
-          <!-- Request a Quote Section -->
-          <div id="quoteSection" style="display: none;">
-            {% include request_quote.md %}
-          </div>
-          <!-- End Request a Quote Section -->
           <script>
             document.addEventListener("DOMContentLoaded", function() {
               const fadeOutElement = document.querySelector(".fade-out-element img");

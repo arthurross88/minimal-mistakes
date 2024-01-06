@@ -61,11 +61,6 @@ Within the series: IESUS & Sun Flower Kaleidoscope
 ***Flower Of Life (Sacred Geometry)
           </div>
           <!-- End New Text Section -->
-          <!-- Request a Quote Section -->
-          <div id="quoteSection" style="display: none;">
-            {% include request_quote.md %}
-          </div>
-          <!-- End Request a Quote Section -->
           <script>
             document.addEventListener("DOMContentLoaded", function() {
               const fadeOutElement = document.querySelector(".fade-out-element img");
