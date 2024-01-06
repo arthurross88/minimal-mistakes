@@ -134,3 +134,14 @@ $(function() {
     }
   });
 });
+document.addEventListener("DOMContentLoaded", function() {
+  const fadeOutElement = document.querySelector(".fade-out");
+  
+  // Trigger the fade-out effect
+  fadeOutElement.classList.add("fade-in");
+  
+  // Optionally, remove the fade-in class after the fade-in effect is complete
+  setTimeout(() => {
+    fadeOutElement.classList.remove("fade-in");
+  }, 1000); // 1000 milliseconds = 1 second
+});

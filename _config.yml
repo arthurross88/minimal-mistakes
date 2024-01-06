@@ -12,13 +12,13 @@
 
 theme                    : minimal-mistakes-jekyll
 #remote_theme             : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : dark # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "plum" #dark  "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", 
 
 # Site Settings
 locale                   : nl-NL
-title                    : The Eternal Fire Of The Gods
+title                    : Rosscoin
 title_separator          : "-"
-subtitle                 : Tha best art in the world!
+subtitle                 : Crypto that's part of the solution!
 name                     : Arthur Ross
 description              : Gemaakt door Arthur Ross
 #url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
@@ -104,10 +104,10 @@ powered_by             : false
 
 # Site Author
 author:
-  name             : Miguel Plukker
+  name             : Arthur Ross
   #avatar           : #/assets/images/Arthur.jpg
-  bio              : Mooie collages!
-  location         : Lisse
+  bio              : Crypto!
+  location         : Leiden
   #email            :
   links:
     - label: Email

@@ -2,7 +2,16 @@
 # Only the main Sass file needs front matter (the dashes are enough)
 search: false
 ---
-
+.fade-out {
+    opacity: 0;
+    transition: opacity 1s ease-in-out; /* Transition for the opacity property */
+  }
+  
+  .fade-in {
+    opacity: 1;
+    transition: opacity 1s ease-in-out; /* Transition for the opacity property */
+  }
+  
 @charset "utf-8";
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin

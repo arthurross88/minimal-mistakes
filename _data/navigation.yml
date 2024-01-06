@@ -2,5 +2,5 @@
 main:
   #- title: page
   # url: /_site/pages/index.html
-  - title: Collectie
+  - title: Invest
     url: /recipes/
