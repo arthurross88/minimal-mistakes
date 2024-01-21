@@ -10,130 +10,136 @@ search: false
 
 /* Fade-in effect */
 .fade-in {
-    opacity: 0;
-    animation: fadeInAnimation ease 2s forwards;
+  opacity: 0;
+  animation: fadeInAnimation ease 2s forwards;
 }
 
 @keyframes fadeInAnimation {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 /* Fade-out effect */
 .fade-out {
-    opacity: 1;
-    animation: fadeOutAnimation ease 2s forwards;
+  opacity: 1;
+  animation: fadeOutAnimation ease 2s forwards;
 }
 
 @keyframes fadeOutAnimation {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 .fullscreen-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: 9999; /* Ensure it's on top */
-    background-color: rgba(0, 0, 0, 0.9); /* Optional: Adds a semi-transparent overlay */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 9999; /* Ensure it's on top */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.9
+  ); /* Optional: Adds a semi-transparent overlay */
 }
 
 .fullscreen-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures the image covers the entire container */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the entire container */
 }
 .fade-out-element {
-    opacity: 1;             /* Start with full opacity */
-    transition: opacity 20s ease; /* Transition property with 4 seconds duration */
+  opacity: 1; /* Start with full opacity */
+  transition: opacity 20s ease; /* Transition property with 4 seconds duration */
 }
 
 .fade-out-element.fade-out {
-    opacity: 0;             /* Fade out to fully transparent */
+  opacity: 0; /* Fade out to fully transparent */
 }
 .fade-in {
-    opacity: 0;
-    animation: fadeInAnimation 2s forwards;
+  opacity: 0;
+  animation: fadeInAnimation 2s forwards;
 }
 
 .fade-out {
-    opacity: 1;
-    animation: fadeOutAnimation 5s forwards;
+  opacity: 1;
+  animation: fadeOutAnimation 5s forwards;
 }
 
 @keyframes fadeInAnimation {
-    to {
-        opacity: 1;
-    }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes fadeOutAnimation {
-    to {
-        opacity: 0;
-    }
+  to {
+    opacity: 0;
+  }
 }
-    .gallery {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px; /* Adjust spacing between images */
-    }
-    .gallery-item img {
-        width: 200px; /* Adjust as needed */
-        height: 200px; /* Adjust as needed */
-        object-fit: cover;
-        border: 2px solid #ddd;
-        transition: transform 0.3s ease-in-out;
-    }
-    
-    .gallery-item img:hover {
-        transform: scale(1.1);
-    }
-    
-    .image-description {
-        margin-top: 10px;
-        font-size: 14px;
-        color: #666;
-    }
-    .fullscreen-image {
-        filter: brightness(70%); /* Adjust the brightness value as needed (e.g., 70% for 30% darker) */
-        /* Add additional styling as needed */
-    }
-    /* Add this CSS code to your stylesheet */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* Adjust spacing between images */
+}
+.gallery-item img {
+  width: 200px; /* Adjust as needed */
+  height: 200px; /* Adjust as needed */
+  object-fit: cover;
+  border: 2px solid #ddd;
+  transition: transform 0.3s ease-in-out;
+}
+
+.gallery-item img:hover {
+  transform: scale(1.1);
+}
+
+.image-description {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
+}
+.fullscreen-image {
+  filter: brightness(
+    70%
+  ); /* Adjust the brightness value as needed (e.g., 70% for 30% darker) */
+  /* Add additional styling as needed */
+}
+/* Add this CSS code to your stylesheet */
 .element-class {
-    display: none;
-  }
-  .fade-out-element {
-    display: flex;
-    flex-direction: column; /* Stack children vertically */
-    justify-content: center; /* Center children vertically */
-    align-items: center; /* Center children horizontally */
-    height: 100vh; /* Set the height to full viewport height */
-  }
-  #quoteSection {
-    display: none;
-    justify-content: center; /* Centers content horizontally */
-    align-items: center; /* Centers content vertically */
-    height: 100vh; /* Takes up the full viewport height */
-  }
-  .request-quote-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Centers content horizontally */
-    align-items: center; /* Centers content vertically */
-    height: 100%; /* Takes up the full height of the parent container */
-  }
-  
+  display: none;
+}
+.fade-out-element {
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  justify-content: center; /* Center children vertically */
+  align-items: center; /* Center children horizontally */
+  height: 100vh; /* Set the height to full viewport height */
+}
+#quoteSection {
+  display: none;
+  justify-content: center; /* Centers content horizontally */
+  align-items: center; /* Centers content vertically */
+  height: 100vh; /* Takes up the full viewport height */
+}
+.request-quote-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centers content horizontally */
+  align-items: center; /* Centers content vertically */
+  height: 100%; /* Takes up the full height of the parent container */
+}

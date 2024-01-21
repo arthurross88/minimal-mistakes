@@ -67,3 +67,56 @@
   z-index: 1000; /* Set the z-index to ensure the element appears above other elements */
   /* Add additional styling as needed */
 }
+
+/* Additional styles for better formatting */
+.image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.image-item {
+  position: relative;
+}
+
+.image-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 223, 0, 0.8); /* Golden color with some transparency */
+  padding: 10px;
+  text-align: center;
+}
+
+.image-caption p {
+  margin: 0;
+  color: black; /* Black text for contrast */
+  font-weight: bold;
+}
+/* Additional styles for better formatting */
+.image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.image-item {
+  position: relative;
+}
+
+.image-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 223, 0, 0.8); /* Golden color with some transparency */
+  padding: 10px;
+  text-align: center;
+}
+
+.image-caption p {
+  margin: 0;
+  color: black; /* Black text for contrast */
+  font-weight: bold;
+}
