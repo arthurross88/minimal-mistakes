@@ -59,24 +59,22 @@ permalink: /page2.md/
     .modal {
       display: none;
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.7);
-      justify-content: center;
-      align-items: center;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: transparent;
+      padding: 20px;
+      text-align: center;
+      border: none; /* Remove border */
     }
     /* Style for the modal content */
-    /* Style for the modal content */
-/* Style for the modal content */
-.modal-content {
-  width: auto; /* Allow the width to adjust based on the image */
-  height: auto; /* Allow the height to adjust based on the image */
-  max-width: 80%; /* Set a maximum width if needed */
-  max-height: 80vh; /* Set a maximum height if needed */
-  object-fit: contain; /* Maintain aspect ratio and fit inside the container */
-}
+    .modal-content {
+      width: 100vw;
+      height: 100vh;
+      object-fit: contain;
+      background-color: transparent;
+      border: none; /* Remove border */
+    }
   </style>
 </head>
 <body>
@@ -123,23 +121,23 @@ Text by: The Eternal Fire Of The Gods - Miguel Angel Plukkel</p>
     </div>
   </div>
 
-  <!-- Modal -->
-<div id="myModal" class="modal" onclick="closeModal()">
-  <div class="modal-content">
-    <img
-      src="{{ site.baseurl }}/assets/images/gallery/second_image2.jpeg"
-      alt="Description of Small Image"
-      class="enlarged"
-      style="width: auto; height: auto; max-width: 80%; max-height: 80vh; object-fit: contain;"
-    />
+   <!-- Modal -->
+  <div id="myModal" class="modal" onclick="closeModal()">
+    <div class="modal-content">
+      <img
+        src="{{ site.baseurl }}/assets/images/gallery/second_image2.jpeg"
+        alt="Description of Small Image"
+        class="enlarged"
+        style="width: 100%; height: 100%; object-fit: contain; border: none;"
+      />
+    </div>
   </div>
-</div>
 
 
   <script>
     function openModal() {
       const modal = document.getElementById('myModal');
-      modal.style.display = 'flex';
+      modal.style.display = 'block';
     }
 
     function closeModal() {
