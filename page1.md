@@ -17,11 +17,13 @@ permalink: /page1.md/
       height: 100vh; /* 100% of the viewport height */
     }
     .center-text {
+        font-size: 24px; /* Adjust the font size as needed */
       text-align: center;
       color: goldenrod; /* Set the text color to goldenrod */
     }
     /* Additional styles for better formatting */
     #newText {
+        font-size: 14px; /* Adjust the font size as needed */
       max-width: 800px;
       margin: 0 auto;
       color: goldenrod; /* Set the text color to goldenrod */
@@ -100,7 +102,7 @@ permalink: /page1.md/
             src="{{ site.baseurl }}/assets/images/gallery/second_image.jpg"
             alt="Description of Small Image"
             class="small-image"
-            style="width: 400px; height: auto;"
+            style="width: 500px; height: auto;"
             onclick="openModal()"
           />
           <p>Within the series: IESUS & Sun Flower Kaleidoscope

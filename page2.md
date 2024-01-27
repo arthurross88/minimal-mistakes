@@ -17,11 +17,13 @@ permalink: /page2.md/
       height: 100vh; /* 100% of the viewport height */
     }
     .center-text {
+              font-size: 24px; /* Adjust the font size as needed */
       text-align: center;
       color: goldenrod; /* Set the text color to goldenrod */
     }
     /* Additional styles for better formatting */
     #newText {
+      font-size: 14px; /* Adjust the font size as needed */
       max-width: 800px;
       margin: 0 auto;
       color: goldenrod; /* Set the text color to goldenrod */
@@ -82,7 +84,7 @@ permalink: /page2.md/
     <div class="fullscreen-container">
       <div class="fade-out-element center-content">
         <img
-          src="{{ site.baseurl }}/assets/images/gallery/halo.jpg"
+          src="{{ site.baseurl }}/assets/images/gallery/halo.jpeg"
           alt="Fullscreen Image"
           class="fullscreen-image fade-out"
         />
@@ -157,8 +159,9 @@ Text by: The Eternal Fire Of The Gods - Miguel Angel Plukkel</p>
       const newText = document.getElementById("newText");
       // Add an event listener for the animation end
       fadeOutElement.addEventListener("animationend", function() {
+          console.log("Animation End Event Fired");
         // Remove the fade-out class after the animation ends
-        fadeOutElement.classList.remove("fade-out");
+        fadeOutElement.style.opacity = 0;
         // Hide the intro text and image
         introText.style.display = "none";
         fadeOutElement.style.display = "none";

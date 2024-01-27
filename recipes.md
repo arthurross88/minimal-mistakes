@@ -20,6 +20,13 @@ sidebar:
     }
     .image-item {
       margin-bottom: 20px;
+      overflow: hidden; /* Hide overflow to prevent layout shifts on hover */
+    }
+    .image-item img {
+      transition: transform 0.3s ease-in-out; /* Add transition effect */
+    }
+    .image-item:hover img {
+      transform: scale(1.2); /* Increase the scale on hover (adjust the value as needed) */
     }
     .image-caption {
       text-align: center;
