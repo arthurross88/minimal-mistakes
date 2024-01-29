@@ -16,13 +16,15 @@ permalink: /page1.md/
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
     .center-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      min-height: 100vh;
-      overflow: hidden;
-    }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  overflow: hidden;
+  max-width: 100%; /* Added max-width for better responsiveness */
+  margin: 0 auto; /* Center the content horizontally */
+}
     .fullscreen-container {
       position: relative;
       width: 100%;
@@ -85,8 +87,8 @@ permalink: /page1.md/
 .modal-image {
   width: 100%;
   height: auto;
-  max-width: 100%; /* Adjusted max-width */
-  max-height: 100%; /* Adjusted max-height */
+  max-width: 100vw; /* Adjusted max-width to fit the viewport width */
+  max-height: 100vh; /* Adjusted max-height to fit the viewport height */
   object-fit: contain;
 }
     @keyframes fadeIn {
