@@ -90,11 +90,6 @@ sidebar:
 </head>
 
 <body>
-  <!-- Request a Quote section moved to the side -->
-  <div class="quote-container">
-    {% include request_quote.md %}
-  </div>
-
   <!-- Rest of your HTML content -->
   <div class="image-gallery">
     <div class="image-item">
