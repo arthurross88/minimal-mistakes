@@ -3,6 +3,7 @@ layout: default
 title: IESUS | The Sun God And The Flower Of Life
 permalink: /page1.md/
 ---
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -15,16 +16,30 @@ permalink: /page1.md/
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
+    .back-to-gallery {
+    display: block;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #FFD700;
+    color: #8B0000; /* Dark red color for text */
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+    .back-to-gallery:hover {
+      background-color: silver;
+    }
     .center-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  min-height: 100vh;
-  overflow: hidden;
-  max-width: 100%; /* Added max-width for better responsiveness */
-  margin: 0 auto; /* Center the content horizontally */
-}
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      min-height: 100vh;
+      overflow: hidden;
+      max-width: 100%; /* Added max-width for better responsiveness */
+      margin: 0 auto; /* Center the content horizontally */
+    }
     .fullscreen-container {
       position: relative;
       width: 100%;
@@ -77,20 +92,20 @@ permalink: /page1.md/
       transition: opacity 1s ease-in-out;
     }
     .modal-content {
-  width: 100%;
-  height: auto;
-  max-width: 100%; /* Adjusted max-width */
-  max-height: 100%; /* Adjusted max-height */
-  object-fit: contain;
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
-}
-.modal-image {
-  width: 100%;
-  height: auto;
-  max-width: 100vw; /* Adjusted max-width to fit the viewport width */
-  max-height: 100vh; /* Adjusted max-height to fit the viewport height */
-  object-fit: contain;
-}
+      width: 100%;
+      height: auto;
+      max-width: 100%; /* Adjusted max-width */
+      max-height: 100%; /* Adjusted max-height */
+      object-fit: contain;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+    }
+    .modal-image {
+      width: 100%;
+      height: auto;
+      max-width: 100vw; /* Adjusted max-width to fit the viewport width */
+      max-height: 100vh; /* Adjusted max-height to fit the viewport height */
+      object-fit: contain;
+    }
     @keyframes fadeIn {
       from {
         opacity: 0;
@@ -128,38 +143,25 @@ permalink: /page1.md/
 <body>
   <div class="center-content">
     <div id="newText" style="display: block;">
-      <img src="{{ site.baseurl }}/assets/images/gallery/second_image.jpg" alt="Description of Small Image" class="small-image" />
+      <img src="{{ site.baseurl }}/assets/images/gallery/jesus.jpg" alt="Description of Small Image" class="small-image" />
     </div>
     <div class="fullscreen-container">
-      <img src="{{ site.baseurl }}/assets/images/gallery/second_image.jpg" alt="Fullscreen Image" class="fullscreen-image fade-out show" />
+      <img src="{{ site.baseurl }}/assets/images/gallery/jesus.jpg" alt="Fullscreen Image" class="fullscreen-image fade-out show" />
     </div>
     <div class="center-text">
-      <h1>IESUS | The Sun God And The Flower Of Life</h1>
       <p>Within the series: IESUS & Sun Flower Kaleidoscope
         *Church of San Giovanni Battista (Saint John The Baptist) at Mogno, Ticino Canton, Lavizara, Switzerland (Land Of The Two Sisters)
         **Architect: Mario Botta @mariobottaarchitetti_official (IG)
         **IESUS: Ancient Greek Sun God
         ***Flower Of Life (Sacred Geometry).</p>
     </div>
+    <!-- Back to Gallery button -->
+    <a href="{{ site.baseurl }}/recipes/" class="back-to-gallery">Back to Gallery</a>
   </div>
 
   <div id="myModal" class="modal" onclick="toggleModal()">
     <div class="modal-content fullscreen-modal">
-      <img src="{{ site.baseurl }}/assets/images/gallery/jesus.jpg" alt="Popup Image" class="modal-image" />
-    </div>
-  </div>
-
-  <div id="myModal2" class="modal" onclick="toggleModal()">
-    <div class="modal-content fullscreen-modal">
-      <img src="{{ site.baseurl }}/assets/images/gallery/jesus.jpg" alt="Popup Image" class="modal-image" />
-    </div>
-    <div class="center-text">
-      <h1>IESUS | The Sun God And The Flower Of Life</h1>
-      <p>Within the series: IESUS & Sun Flower Kaleidoscope
-        *Church of San Giovanni Battista (Saint John The Baptist) at Mogno, Ticino Canton, Lavizara, Switzerland (Land Of The Two Sisters)
-        **Architect: Mario Botta @mariobottaarchitetti_official (IG)
-        **IESUS: Ancient Greek Sun God
-        ***Flower Of Life (Sacred Geometry).</p>
+      <img src="{{ site.baseurl }}/assets/images/gallery/second_image.jpg" alt="Popup Image" class="modal-image" />
     </div>
   </div>
 
@@ -181,16 +183,18 @@ permalink: /page1.md/
     }
 
     document.addEventListener("DOMContentLoaded", function () {
-      const secondImage = document.querySelector("#newText .small-image");
+      const firstImage = document.querySelector("#newText .small-image");
       const modalImage = document.querySelector(".modal-image");
 
-      secondImage.addEventListener("click", function () {
-        toggleModal();
-        modalImage.src = this.src;
+      firstImage.addEventListener("click", function () {
+        if (this.src.includes('jesus.jpg')) {
+          toggleModal();
+          modalImage.src = this.src;
+        }
       });
 
       setTimeout(function () {
-        secondImage.classList.add('show');
+        firstImage.classList.add('show');
         const fullscreenImage = document.querySelector(".fullscreen-image");
         fullscreenImage.classList.add('show');
       }, 500);
