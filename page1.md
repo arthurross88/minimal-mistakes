@@ -21,15 +21,17 @@ permalink: /page1.md/
     margin-top: 20px;
     padding: 10px;
     background-color: #FFD700;
-    color: #8B0000; /* Dark red color for text */
+    color: #000; /* Default text color */
     text-decoration: none;
     font-weight: bold;
     cursor: pointer;
     border-radius: 5px;
+    transition: color 0.3s; /* Added transition for smooth color change */
   }
-    .back-to-gallery:hover {
-      background-color: silver;
-    }
+  .back-to-gallery:hover {
+    background-color: silver;
+    color: #8B0000; /* Dark red color when hovered */
+  }
     .center-content {
       display: flex;
       flex-direction: column;
