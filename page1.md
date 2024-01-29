@@ -16,21 +16,20 @@ permalink: /page1.md/
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
-    .back-to-gallery {
-    display: block;
+  .back-to-gallery {
+    display: inline-block;
     margin-top: 20px;
-    padding: 10px;
+    padding: 10px 20px;
     background-color: #FFD700;
-    color: #000; /* Default text color */
+    color: black; /* Set the font color to black */
     text-decoration: none;
     font-weight: bold;
-    cursor: pointer;
     border-radius: 5px;
-    transition: color 0.3s; /* Added transition for smooth color change */
+    transition: background-color 0.3s, color 0.3s;
   }
   .back-to-gallery:hover {
     background-color: silver;
-    color: #8B0000; /* Dark red color when hovered */
+    color: #8B0000;
   }
     .center-content {
       display: flex;
@@ -92,7 +91,8 @@ permalink: /page1.md/
       align-items: center;
       opacity: 0;
       transition: opacity 1s ease-in-out;
-    }
+      pointer-events: none; /* Clicks on the modal won't trigger events */
+}
     .modal-content {
       width: 100%;
       height: auto;
@@ -167,40 +167,49 @@ permalink: /page1.md/
     </div>
   </div>
 
-  <script>
-    function toggleModal() {
-      const modal = document.querySelector('.modal.fade-in');
-      const modalContent = document.querySelector('.modal-content');
+  <!-- ... Your existing HTML code ... -->
 
-      if (!modal) {
-        document.getElementById('myModal').style.display = 'flex';
-        document.getElementById('myModal').classList.add('fade-in');
-      } else {
-        modal.classList.add('fade-out');
-        setTimeout(() => {
-          document.getElementById('myModal').style.display = 'none';
-          modal.classList.remove('fade-out', 'fade-in');
-        }, 1000);
-      }
-    }
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const firstImage = document.querySelector("#newText .small-image");
+    const modal = document.getElementById('myModal');
+    const modalImage = document.querySelector(".modal-image");
 
-    document.addEventListener("DOMContentLoaded", function () {
-      const firstImage = document.querySelector("#newText .small-image");
-      const modalImage = document.querySelector(".modal-image");
-
-      firstImage.addEventListener("click", function () {
-        if (this.src.includes('jesus.jpg')) {
-          toggleModal();
-          modalImage.src = this.src;
+    firstImage.addEventListener("click", function (event) {
+      if (event.target.classList.contains('small-image') && event.target.src.includes('jesus.jpg')) {
+        if (modal.style.display === 'flex') {
+          modal.classList.add('fade-out');
+          setTimeout(() => {
+            modal.style.display = 'none';
+            modal.classList.remove('fade-out', 'fade-in');
+          }, 1000);
+        } else {
+          modalImage.src = event.target.src;
+          modal.style.display = 'flex';
+          modal.classList.add('fade-in');
         }
-      });
-
-      setTimeout(function () {
-        firstImage.classList.add('show');
-        const fullscreenImage = document.querySelector(".fullscreen-image");
-        fullscreenImage.classList.add('show');
-      }, 500);
+      }
     });
-  </script>
+
+    modal.addEventListener("click", function () {
+      modal.classList.add('fade-out');
+      setTimeout(() => {
+        modal.style.display = 'none';
+        modal.classList.remove('fade-out', 'fade-in');
+      }, 1000);
+    });
+
+    setTimeout(function () {
+      firstImage.classList.add('show');
+      const fullscreenImage = document.querySelector(".fullscreen-image");
+      fullscreenImage.classList.add('show');
+    }, 500);
+
+    const backButton = document.querySelector(".back-to-gallery");
+    backButton.addEventListener("click", function () {
+      window.location.href = "{{ site.baseurl }}/recipes/";
+    });
+  });
+</script>
 </body>
 </html>
