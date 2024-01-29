@@ -5,182 +5,130 @@ permalink: /page1.md/
 ---
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <!-- ... same as before ... -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IESUS | The Sun God And The Flower Of Life</title>
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css" />
   <style>
-    /* Center the text */
-    .center-content {
+    html {
+      height: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh; /* 100% of the viewport height */
     }
-    .center-text {
-      font-size: 2em; /* Adjust the font size as needed */
-      text-align: center;
-      color: goldenrod; /* Set the text color to goldenrod */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
-    /* Additional styles for better formatting */
-    #newText {
-      font-size: 1em; /* Adjust the font size as needed */
-      max-width: 80%; /* Adjust the maximum width */
-      margin: 0 auto;
-      color: goldenrod; /* Set the text color to goldenrod */
+    .center-content {
       display: flex;
-      flex-direction: column;
+      flex-direction: column; /* Display children in a column */
       align-items: center;
       text-align: center;
+      height: 100vh;
     }
-    /* Enlarge image on hover */
-    .small-image {
-      transition: transform 0.3s ease-in-out; /* Add transition effect */
-      cursor: pointer;
+    .fullscreen-container {
+      position: relative;
     }
     .fullscreen-image {
-    width: 100%; /* Set width to 100% of the viewport */
-    height: 100vh; /* Set height to 100% of the viewport height */
-    object-fit: cover; /* Maintain aspect ratio and cover the entire container */
-  }
-    .small-image:hover {
-      transform: scale(1.2); /* Increase the scale on hover (you can adjust the value) */
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      max-height: 70vh; /* Set a maximum height for the image */
     }
-    .enlarged {
-    max-width: 100%; /* Allow the width to adjust based on the image */
-    max-height: 100%; /* Allow the height to adjust based on the image */
-    object-fit: contain; /* Maintain aspect ratio and fit inside the container */
-    cursor: pointer; /* Add pointer cursor for closing the modal on click */
-  }
-    /* Style for the back button */
-    .back-button {
-      background-color: goldenrod;
-      color: black;
-      padding: 10px 20px;
-      border: none;
+    .center-text {
+      font-size: 1.5vw; /* Further reduced font size for the title */
+      color: #FFD700;
+      max-width: 80%;
+      margin: 15px auto; /* Adjusted margin for better spacing */
+    }
+    .small-image {
       cursor: pointer;
-      font-size: 1em; /* Adjust the font size as needed */
-      margin-top: 20px;
+      max-width: 100%;
+      height: auto;
+      transition: transform 0.3s ease-in-out, opacity 1s ease-in-out, border 0.3s ease-in-out; /* Increased opacity duration */
+      opacity: 0;
+      margin-top: 15px; /* Adjusted margin for better spacing */
     }
-    /* Style for the modal */
+    .small-image.show {
+      opacity: 1;
+      border: 3px solid #FFD700; /* Add a border to make it stand out */
+    }
     .modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    justify-content: center;
-    align-items: center;
-    overflow: auto; /* Add overflow for small screens */
-  }
-  /* Updated style for the modal content */
-  .modal-content {
-    width: 100vw; /* Set width to 100% of the viewport width */
-    height: 100vh; /* Set height to 100% of the viewport height */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-    /* Responsive adjustments */
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: transparent;
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+    }
     @media only screen and (max-width: 768px) {
       .center-text {
-        font-size: 1.5em; /* Adjust font size for smaller screens */
-      }
-      #newText {
-        font-size: 0.8em; /* Adjust font size for smaller screens */
-      }
-      .back-button {
-        font-size: 0.8em; /* Adjust font size for smaller screens */
+        font-size: 3vw; /* Adjusted font size for smaller screens */
       }
     }
   </style>
 </head>
+
 <body>
-  <div class="fade-in-out">
+
+  <div class="center-content">
+    <div id="newText" style="display: block;">
+      <img src="{{ site.baseurl }}/assets/images/gallery/second_image.jpg" alt="Description of Small Image" class="small-image" />
+    </div>
     <div class="fullscreen-container">
-      <div class="fade-out-element center-content">
-        <img
-          src="{{ site.baseurl }}/assets/images/gallery/jesus.jpg"
-          alt="Fullscreen Image"
-          class="fullscreen-image fade-out"
-        />
-        <!-- Introductory Text Section -->
-        <div class="intro-text center-text">
-          <h1>IESUS | The Sun God And The Flower Of Life</h1>
-          <p>
-            <!-- ... your content ... -->
-          </p>
-        </div>
-        <!-- End Introductory Text Section -->
-        <!-- New Text Section -->
-        <div id="newText" style="display: block;">
-          <img
-            src="{{ site.baseurl }}/assets/images/gallery/second_image.jpg"
-            alt="Description of Small Image"
-            class="small-image"
-            style="width: 500px; height: auto;"
-            onclick="openModal()"
-          />
-          <p>Within the series: IESUS & Sun Flower Kaleidoscope
-
-            *Church of San Giovanni Battista (Saint John The Baptist) at Mogno, Ticino Canton, Lavizara, Switzerland (Land Of The Two Sisters) **Architect: Mario Botta @mariobottaarchitetti_official (IG)
-
-            **IESUS: Ancient Greek Sun God
-
-  ***Flower Of Life (Sacred Geometry)</p>
-          <!-- Back to Collection Button -->
-          <button class="back-button" onclick="backToCollection()">Back to Gallery</button>
-        </div>
-      </div>
+      <img src="{{ site.baseurl }}/assets/images/gallery/second_image.jpg" alt="Fullscreen Image" class="fullscreen-image fade-out" />
+    </div>
+    <div class="center-text">
+      <h1>IESUS | The Sun God And The Flower Of Life</h1>
+      <p>Within the series: IESUS & Sun Flower Kaleidoscope
+        *Church of San Giovanni Battista (Saint John The Baptist) at Mogno, Ticino Canton, Lavizara, Switzerland (Land Of The Two Sisters)
+        **Architect: Mario Botta @mariobottaarchitetti_official (IG)
+        **IESUS: Ancient Greek Sun God
+        ***Flower Of Life (Sacred Geometry).</p>
     </div>
   </div>
-  <!-- Modal -->
-<div id="myModal" class="modal" onclick="closeModal()">
-  <div class="modal-content">
-    <img
-      src="{{ site.baseurl }}/assets/images/gallery/second_image.jpg"
-      alt="Description of Small Image"
-      class="enlarged"
-      style="width: auto; height: auto; max-width: 80%; max-height: 80vh; object-fit: contain;"
-    />
+
+  <div id="myModal" class="modal" onclick="closeModal()">
+    <div class="modal-content fullscreen-modal">
+      <img src="{{ site.baseurl }}/assets/images/gallery/second_image.jpg" alt="Popup Image" class="modal-image fullscreen-image" />
+    </div>
   </div>
-</div>
+
   <script>
     function openModal() {
-      const modal = document.getElementById('myModal');
-      modal.style.display = 'flex';
+      document.getElementById('myModal').style.display = 'flex';
     }
+
     function closeModal() {
-      const modal = document.getElementById('myModal');
-      modal.style.display = 'none';
+      document.getElementById('myModal').style.display = 'none';
     }
-    function backToCollection() {
-      // Redirect or navigate back to the collection page
-      window.location.href = "{{ site.baseurl }}/recipes"; // Update the URL to your collection page
-    }
-    document.addEventListener("DOMContentLoaded", function() {
-      console.log("DOMContentLoaded Event Fired");
-      const fadeOutElement = document.querySelector(".fade-out-element img");
-      const introText = document.querySelector(".intro-text");
-      const newText = document.getElementById("newText");
-      // Add an event listener for the animation end
-      fadeOutElement.addEventListener("animationend", function() {
-        // Remove the fade-out class after the animation ends
-        fadeOutElement.classList.remove("fade-out");
-        // Hide the intro text and image
-        introText.style.display = "none";
-        fadeOutElement.style.display = "none";
-        // Display the new text
-        newText.style.display = "block";
-      });
-      // Add a click event listener to the second image
+
+    document.addEventListener("DOMContentLoaded", function () {
       const secondImage = document.querySelector("#newText .small-image");
-      secondImage.addEventListener("click", function() {
-        console.log("Second Image Clicked");
+      secondImage.addEventListener("click", function () {
         openModal();
       });
+
+      // Adding a small delay before adding the 'show' class to allow the fade-in effect
+      setTimeout(function () {
+        secondImage.classList.add('show');
+      }, 100);
     });
   </script>
 </body>
+
 </html>
