@@ -4,3 +4,5 @@ main:
   # url: /_site/pages/index.html
   - title: Gallery
     url: /recipes/
+  - title: Quote
+    url: /request_quote/
