@@ -17,14 +17,14 @@ permalink: /page1.md/
       height: 100vh; /* 100% of the viewport height */
     }
     .center-text {
-        font-size: 24px; /* Adjust the font size as needed */
+      font-size: 2em; /* Adjust the font size as needed */
       text-align: center;
       color: goldenrod; /* Set the text color to goldenrod */
     }
     /* Additional styles for better formatting */
     #newText {
-        font-size: 14px; /* Adjust the font size as needed */
-      max-width: 800px;
+      font-size: 1em; /* Adjust the font size as needed */
+      max-width: 80%; /* Adjust the maximum width */
       margin: 0 auto;
       color: goldenrod; /* Set the text color to goldenrod */
       display: flex;
@@ -41,7 +41,7 @@ permalink: /page1.md/
       transform: scale(1.2); /* Increase the scale on hover (you can adjust the value) */
     }
     .enlarged {
-      width: 80vw; /* Adjust the width to make it 80% of the viewport */
+      max-width: 100%; /* Adjust the width to make it responsive */
       height: auto; /* Auto-adjust height to maintain aspect ratio */
       object-fit: contain; /* Maintain aspect ratio and fit inside the container */
     }
@@ -52,7 +52,7 @@ permalink: /page1.md/
       padding: 10px 20px;
       border: none;
       cursor: pointer;
-      font-size: 16px;
+      font-size: 1em; /* Adjust the font size as needed */
       margin-top: 20px;
     }
     /* Style for the modal */
@@ -68,15 +68,25 @@ permalink: /page1.md/
       align-items: center;
     }
     /* Style for the modal content */
-    /* Style for the modal content */
-/* Style for the modal content */
-.modal-content {
-  width: auto; /* Allow the width to adjust based on the image */
-  height: auto; /* Allow the height to adjust based on the image */
-  max-width: 80%; /* Set a maximum width if needed */
-  max-height: 80vh; /* Set a maximum height if needed */
-  object-fit: contain; /* Maintain aspect ratio and fit inside the container */
-}
+    .modal-content {
+      width: 80%; /* Adjust the width for smaller screens */
+      height: auto; /* Allow the height to adjust based on the image */
+      max-width: 80vw; /* Set a maximum width based on viewport width */
+      max-height: 80vh; /* Set a maximum height based on viewport height */
+      object-fit: contain; /* Maintain aspect ratio and fit inside the container */
+    }
+    /* Responsive adjustments */
+    @media only screen and (max-width: 768px) {
+      .center-text {
+        font-size: 1.5em; /* Adjust font size for smaller screens */
+      }
+      #newText {
+        font-size: 0.8em; /* Adjust font size for smaller screens */
+      }
+      .back-button {
+        font-size: 0.8em; /* Adjust font size for smaller screens */
+      }
+    }
   </style>
 </head>
 <body>

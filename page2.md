@@ -17,13 +17,13 @@ permalink: /page2.md/
       height: 100vh; /* 100% of the viewport height */
     }
     .center-text {
-              font-size: 24px; /* Adjust the font size as needed */
+        font-size: 24px; /* Adjust the font size as needed */
       text-align: center;
       color: goldenrod; /* Set the text color to goldenrod */
     }
     /* Additional styles for better formatting */
     #newText {
-      font-size: 14px; /* Adjust the font size as needed */
+        font-size: 14px; /* Adjust the font size as needed */
       max-width: 800px;
       margin: 0 auto;
       color: goldenrod; /* Set the text color to goldenrod */
@@ -59,22 +59,24 @@ permalink: /page2.md/
     .modal {
       display: none;
       position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: transparent;
-      padding: 20px;
-      text-align: center;
-      border: none; /* Remove border */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
     }
     /* Style for the modal content */
-    .modal-content {
-      width: 100vw;
-      height: 100vh;
-      object-fit: contain;
-      background-color: transparent;
-      border: none; /* Remove border */
-    }
+    /* Style for the modal content */
+/* Style for the modal content */
+.modal-content {
+  width: auto; /* Allow the width to adjust based on the image */
+  height: auto; /* Allow the height to adjust based on the image */
+  max-width: 80%; /* Set a maximum width if needed */
+  max-height: 80vh; /* Set a maximum height if needed */
+  object-fit: contain; /* Maintain aspect ratio and fit inside the container */
+}
   </style>
 </head>
 <body>
@@ -100,7 +102,7 @@ permalink: /page2.md/
             src="{{ site.baseurl }}/assets/images/gallery/halo.jpeg"
             alt="Description of Small Image"
             class="small-image"
-            style="width: 400px; height: auto;"
+            style="width: 500px; height: auto;"
             onclick="openModal()"
           />
           <p>Within the series: Sun & Spring Kaleidoscope
@@ -113,7 +115,7 @@ Photography of background blossoms: Patty Den Boer
 
 And until we come back to realizing to need no thing but love and all the beauty and joy that comes with it whilst it so abundantly flows from it, that, with its ethereal light, reaches far beyond that ephemeral dream time of men's existence, indeed beyond all imaginary and idol needs, for all eternity. -
 
-Text by: The Eternal Fire Of The Gods - Miguel Angel Plukkel</p>
+Text by: The Eternal Fire Of The Gods - Miguel Angel Plukkel<</p>
           <!-- Back to Collection Button -->
           <button class="back-button" onclick="backToCollection()">Back to Gallery</button>
         </div>
@@ -121,23 +123,23 @@ Text by: The Eternal Fire Of The Gods - Miguel Angel Plukkel</p>
     </div>
   </div>
 
-   <!-- Modal -->
-  <div id="myModal" class="modal" onclick="closeModal()">
-    <div class="modal-content">
-      <img
-        src="{{ site.baseurl }}/assets/images/gallery/second_image2.jpeg"
-        alt="Description of Small Image"
-        class="enlarged"
-        style="width: 100%; height: 100%; object-fit: contain; border: none;"
-      />
-    </div>
+  <!-- Modal -->
+<div id="myModal" class="modal" onclick="closeModal()">
+  <div class="modal-content">
+    <img
+      src="{{ site.baseurl }}/assets/images/gallery/halo.jpeg"
+      alt="Description of Small Image"
+      class="enlarged"
+      style="width: auto; height: auto; max-width: 80%; max-height: 80vh; object-fit: contain;"
+    />
   </div>
+</div>
 
 
   <script>
     function openModal() {
       const modal = document.getElementById('myModal');
-      modal.style.display = 'block';
+      modal.style.display = 'flex';
     }
 
     function closeModal() {
@@ -157,9 +159,8 @@ Text by: The Eternal Fire Of The Gods - Miguel Angel Plukkel</p>
       const newText = document.getElementById("newText");
       // Add an event listener for the animation end
       fadeOutElement.addEventListener("animationend", function() {
-          console.log("Animation End Event Fired");
         // Remove the fade-out class after the animation ends
-        fadeOutElement.style.opacity = 0;
+        fadeOutElement.classList.remove("fade-out");
         // Hide the intro text and image
         introText.style.display = "none";
         fadeOutElement.style.display = "none";

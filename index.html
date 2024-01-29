@@ -5,14 +5,32 @@ layout: home
 <style>
   .fade-out-element {
     display: flex;
-    flex-direction: column; /* Stack children vertically */
-    justify-content: center; /* Center children vertically */
-    align-items: center; /* Center children horizontally */
-    height: 100vh; /* Set the height to full viewport height */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
   }
 
   .go-to-collection {
-    margin-top: 20px; /* Adjust the margin as needed */
+    margin-top: 20px;
+  }
+
+  /* Responsive adjustments */
+  @media only screen and (max-width: 768px) {
+    .intro-text {
+      text-align: center; /* Center text on smaller screens */
+    }
+  }
+
+  @media only screen and (max-width: 480px) {
+    .intro-text h1 {
+      font-size: 1.5em; /* Adjust heading font size for smaller screens */
+    }
+
+    .fullscreen-image {
+      max-width: 100%; /* Ensure image doesn't overflow on small screens */
+      height: auto; /* Maintain aspect ratio */
+    }
   }
 </style>
 <head>
