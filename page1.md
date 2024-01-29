@@ -57,24 +57,24 @@ permalink: /page1.md/
     }
     /* Style for the modal */
     .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.7);
-      justify-content: center;
-      align-items: center;
-    }
-    /* Style for the modal content */
-    .modal-content {
-      width: 80%; /* Adjust the width for smaller screens */
-      height: auto; /* Allow the height to adjust based on the image */
-      max-width: 80vw; /* Set a maximum width based on viewport width */
-      max-height: 80vh; /* Set a maximum height based on viewport height */
-      object-fit: contain; /* Maintain aspect ratio and fit inside the container */
-    }
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    overflow: auto; /* Add overflow for small screens */
+  }
+  /* Updated style for the modal content */
+  .modal-content {
+    max-width: 90%; /* Adjust the maximum width for smaller screens */
+    max-height: 90vh; /* Adjust the maximum height for smaller screens */
+    object-fit: contain; /* Maintain aspect ratio and fit inside the container */
+    cursor: pointer; /* Add pointer cursor for closing the modal on click */
+  }
     /* Responsive adjustments */
     @media only screen and (max-width: 768px) {
       .center-text {
