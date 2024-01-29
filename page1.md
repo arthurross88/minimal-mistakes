@@ -70,16 +70,17 @@ permalink: /page1.md/
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
-    display: flex;
     justify-content: center;
     align-items: center;
     overflow: auto; /* Add overflow for small screens */
   }
+  /* Updated style for the modal content */
   .modal-content {
-    max-width: 90%; /* Adjust the maximum width for smaller screens */
-    max-height: 90vh; /* Adjust the maximum height for smaller screens */
-    object-fit: contain; /* Maintain aspect ratio and fit inside the container */
-    cursor: pointer; /* Add pointer cursor for closing the modal on click */
+    width: 100vw; /* Set width to 100% of the viewport width */
+    height: 100vh; /* Set height to 100% of the viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
     /* Responsive adjustments */
     @media only screen and (max-width: 768px) {
