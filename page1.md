@@ -59,30 +59,53 @@ permalink: /page1.md/
       border: 3px solid #FFD700;
     }
     .modal {
-      display: none;
-      position: fixed;
-      top: 30%; /* Adjust the top position as needed */
-      left: 25%; /* Adjust the left position as needed */
-      width: 70%; /* Adjust the width as needed */
-      height: 70vh; /* Adjust the height as needed */
-      background: rgba(0, 0, 0, 0);
-    }
+    display: none;
+    position: fixed;
+    top: auto;
+    right: 0; /* Stick to the right */
+    bottom: 0;
+    left: auto; /* Unset left */
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
     .modal-content {
       width: 100%;
-      height: 100%;
-      max-width: 100%;
-      max-height: 100%;
+      height: auto;
+      max-width: 1200px;
+      max-height: 90%;
       object-fit: contain;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
-      transition: box-shadow 0.3s ease-in-out, opacity 5s ease-in-out;
     }
     .modal-image {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
+    }
+    @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  .modal.fade-in {
+    animation: fadeIn 2s ease-in-out; /* Increased duration to 2 seconds */
+    opacity: 1;
+  }
+    .modal.fade-out {
+      opacity: 0;
+    }
+    /* Add a transition for the fade-out effect */
+    .modal.fade-out .modal-content {
+      transition: opacity 1s ease-in-out;
     }
     .modal:hover .modal-content {
       box-shadow: 0 0 30px rgba(255, 215, 0, 1);
@@ -91,20 +114,10 @@ permalink: /page1.md/
       .center-text {
         font-size: 2vw;
       }
-      .modal {
-        top: 35%;
-        left: 20%;
-        width: 60%;
-      }
     }
     @media only screen and (max-width: 768px) {
       .center-text {
         font-size: 3vw;
-      }
-      .modal {
-        top: 40%;
-        left: 10%;
-        width: 80%;
       }
     }
   </style>
@@ -134,25 +147,35 @@ permalink: /page1.md/
     </div>
   </div>
 
-  <script>
-    let modalOpen = false;
+  <div id="myModal2" class="modal" onclick="toggleModal()">
+    <div class="modal-content fullscreen-modal">
+      <img src="{{ site.baseurl }}/assets/images/gallery/jesus.jpg" alt="Popup Image" class="modal-image" />
+    </div>
+    <div class="center-text">
+      <h1>IESUS | The Sun God And The Flower Of Life</h1>
+      <p>Within the series: IESUS & Sun Flower Kaleidoscope
+        *Church of San Giovanni Battista (Saint John The Baptist) at Mogno, Ticino Canton, Lavizara, Switzerland (Land Of The Two Sisters)
+        **Architect: Mario Botta @mariobottaarchitetti_official (IG)
+        **IESUS: Ancient Greek Sun God
+        ***Flower Of Life (Sacred Geometry).</p>
+    </div>
+  </div>
 
+  <script>
     function toggleModal() {
-      const modal = document.getElementById('myModal');
+      const modal = document.querySelector('.modal.fade-in');
       const modalContent = document.querySelector('.modal-content');
 
-      if (!modalOpen) {
-        modal.style.display = 'flex';
-        modalContent.classList.remove('fade-out');
+      if (!modal) {
+        document.getElementById('myModal').style.display = 'flex';
+        document.getElementById('myModal').classList.add('fade-in');
       } else {
-        modalContent.classList.add('fade-out');
+        modal.classList.add('fade-out');
         setTimeout(() => {
-          modal.style.display = 'none';
-          modalContent.classList.remove('fade-out');
-        }, 5000);
+          document.getElementById('myModal').style.display = 'none';
+          modal.classList.remove('fade-out', 'fade-in');
+        }, 1000);
       }
-
-      modalOpen = !modalOpen;
     }
 
     document.addEventListener("DOMContentLoaded", function () {
@@ -171,7 +194,6 @@ permalink: /page1.md/
       }, 500);
     });
   </script>
-
 </body>
 
 </html>
