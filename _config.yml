@@ -11,7 +11,7 @@
 # https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/#installing-the-theme
 
 theme                    : minimal-mistakes-jekyll
-#remote_theme             : "mmistakes/minimal-mistakes"
+remote_theme             : mmistakes/minimal-mistakes
 minimal_mistakes_skin    : dark # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
@@ -104,11 +104,11 @@ powered_by             : false
 
 # Site Author
 author:
-  name             : Miguel Plukker
-  #avatar           : #/assets/images/Arthur.jpg
+  name             : Arthur Ross
+  avatar           : /assets/images/Arthur.jpg
   bio              : Mooie collages!
-  location         : Lisse
-  #email            :
+  location         : Leiden
+  email            : arthurross@live.nl
   links:
     - label: Email
       icon: fas fa-fw fa-envelope-square
@@ -127,7 +127,7 @@ author:
       # url: "https://github.com/"
     - label: Instagram
       icon: fab fa-fw fa-instagram
-      # url: "https://instagram.com/"
+      #url: "https://www.instagram.com/theeternalfireofthegods369/"
 
 # Site Footer
 footer:
@@ -149,7 +149,7 @@ footer:
       # url:
     - label: Instagram
       icon: fab fa-fw fa-instagram
-      # url:
+      #url: "https://www.instagram.com/theeternalfireofthegods369/"
 
 
 # Reading Files
