@@ -37,14 +37,19 @@ permalink: /page1.md/
       transition: transform 0.3s ease-in-out; /* Add transition effect */
       cursor: pointer;
     }
+    .fullscreen-image {
+    width: 100%; /* Set width to 100% of the viewport */
+    height: 100vh; /* Set height to 100% of the viewport height */
+    object-fit: cover; /* Maintain aspect ratio and cover the entire container */
+  }
     .small-image:hover {
       transform: scale(1.2); /* Increase the scale on hover (you can adjust the value) */
     }
     .enlarged {
-      max-width: 100%; /* Adjust the width to make it responsive */
-      height: auto; /* Auto-adjust height to maintain aspect ratio */
-      object-fit: contain; /* Maintain aspect ratio and fit inside the container */
-    }
+    width: 100%; /* Set width to 100% of the modal */
+    height: 100%; /* Set height to 100% of the modal */
+    object-fit: contain; /* Maintain aspect ratio and fit inside the container */
+  }
     /* Style for the back button */
     .back-button {
       background-color: goldenrod;
@@ -128,7 +133,6 @@ permalink: /page1.md/
       </div>
     </div>
   </div>
-
   <!-- Modal -->
 <div id="myModal" class="modal" onclick="closeModal()">
   <div class="modal-content">
@@ -140,24 +144,19 @@ permalink: /page1.md/
     />
   </div>
 </div>
-
-
   <script>
     function openModal() {
       const modal = document.getElementById('myModal');
       modal.style.display = 'flex';
     }
-
     function closeModal() {
       const modal = document.getElementById('myModal');
       modal.style.display = 'none';
     }
-
     function backToCollection() {
       // Redirect or navigate back to the collection page
       window.location.href = "{{ site.baseurl }}/recipes"; // Update the URL to your collection page
     }
-
     document.addEventListener("DOMContentLoaded", function() {
       console.log("DOMContentLoaded Event Fired");
       const fadeOutElement = document.querySelector(".fade-out-element img");
