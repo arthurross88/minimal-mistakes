@@ -1,7 +1,9 @@
 ---
 layout: home
 ---
+
 <!-- ... same as before ... -->
+
 <style>
   .fade-out-element {
     display: flex;
@@ -20,22 +22,24 @@ layout: home
     .intro-text {
       text-align: center; /* Center text on smaller screens */
     }
-  }
-
-  @media only screen and (max-width: 480px) {
-    .intro-text h1 {
-      font-size: 1.5em; /* Adjust heading font size for smaller screens */
-    }
 
     .fullscreen-image {
       max-width: 100%; /* Ensure image doesn't overflow on small screens */
       height: auto; /* Maintain aspect ratio */
     }
   }
+
+  @media only screen and (max-width: 480px) {
+    .intro-text h1 {
+      font-size: 1.5em; /* Adjust heading font size for smaller screens */
+    }
+  }
 </style>
+
 <head>
   <!-- other head elements -->
 </head>
+
 <body>
   <div class="fade-in-out">
     <div class="fullscreen-container">
@@ -53,7 +57,6 @@ layout: home
           </p>
         </div>
         <!-- End Introductory Text Section -->
-        <script src="{{ site.baseurl }}/assets/recipes/script.js"></script>
       </div>
     </div>
   </div>

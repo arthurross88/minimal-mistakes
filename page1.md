@@ -145,7 +145,7 @@ permalink: /page1.md/
 <body>
   <div class="center-content">
     <div id="newText" style="display: block;">
-      <img src="{{ site.baseurl }}/assets/images/gallery/jesus.jpg" alt="Description of Small Image" class="small-image" />
+      <img src="{{ site.baseurl }}/assets/images/gallery/jesus.jpg" alt="Kaleidoscope" class="small-image" />
     </div>
     <div class="fullscreen-container">
       <img src="{{ site.baseurl }}/assets/images/gallery/jesus.jpg" alt="Fullscreen Image" class="fullscreen-image fade-out show" />
