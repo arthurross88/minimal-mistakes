@@ -4,7 +4,6 @@ title: IESUS | The Sun God And The Flower Of Life
 permalink: /page1.md/
 ---
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -59,47 +58,49 @@ permalink: /page1.md/
       border: 3px solid #FFD700;
     }
     .modal {
-    display: none;
-    position: fixed;
-    top: auto;
-    right: 0; /* Stick to the right */
-    bottom: 0;
-    left: auto; /* Unset left */
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    overflow: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-  }
-    .modal-content {
-      width: 100%;
-      height: auto;
-      max-width: 1200px;
-      max-height: 90%;
-      object-fit: contain;
-      box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
-    }
-    .modal-image {
+      display: none;
+      position: fixed;
+      top: auto;
+      right: 0; /* Stick to the right */
+      bottom: 0;
+      left: auto; /* Unset left */
       width: 100%;
       height: 100%;
-      object-fit: contain;
-    }
-    @keyframes fadeIn {
-    from {
+      background: rgba(0, 0, 0, 0.8);
+      overflow: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       opacity: 0;
+      transition: opacity 1s ease-in-out;
     }
-    to {
+    .modal-content {
+  width: 100%;
+  height: auto;
+  max-width: 100%; /* Adjusted max-width */
+  max-height: 100%; /* Adjusted max-height */
+  object-fit: contain;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+}
+.modal-image {
+  width: 100%;
+  height: auto;
+  max-width: 100%; /* Adjusted max-width */
+  max-height: 100%; /* Adjusted max-height */
+  object-fit: contain;
+}
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    .modal.fade-in {
+      animation: fadeIn 2s ease-in-out; /* Increased duration to 2 seconds */
       opacity: 1;
     }
-  }
-  .modal.fade-in {
-    animation: fadeIn 2s ease-in-out; /* Increased duration to 2 seconds */
-    opacity: 1;
-  }
     .modal.fade-out {
       opacity: 0;
     }
@@ -122,7 +123,6 @@ permalink: /page1.md/
     }
   </style>
 </head>
-
 <body>
   <div class="center-content">
     <div id="newText" style="display: block;">
@@ -195,5 +195,4 @@ permalink: /page1.md/
     });
   </script>
 </body>
-
 </html>
