@@ -3,7 +3,6 @@ layout: default
 title: IESUS | The Sun God And The Flower Of Life
 permalink: /page1.md/
 ---
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -12,49 +11,47 @@ permalink: /page1.md/
   <title>IESUS | The Sun God And The Flower Of Life</title>
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css" />
   <style>
-    html {
+    html, body {
       height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
     .center-content {
       display: flex;
-      flex-direction: column; /* Display children in a column */
+      flex-direction: column;
       align-items: center;
       text-align: center;
-      height: 100vh;
+      min-height: 100vh;
+      overflow: hidden; /* Hide overflow to prevent scrolling */
     }
     .fullscreen-container {
       position: relative;
+      width: 100%;
+      max-height: 70vh;
+      overflow: hidden; /* Hide overflow to prevent scrolling */
     }
     .fullscreen-image {
       width: 100%;
       height: auto;
       object-fit: cover;
-      max-height: 70vh; /* Set a maximum height for the image */
     }
     .center-text {
-      font-size: 1.5vw; /* Further reduced font size for the title */
+      font-size: 1.5vw;
       color: #FFD700;
       max-width: 80%;
-      margin: 15px auto; /* Adjusted margin for better spacing */
+      margin: 15px auto;
     }
     .small-image {
       cursor: pointer;
       max-width: 100%;
       height: auto;
-      transition: transform 0.3s ease-in-out, opacity 1s ease-in-out, border 0.3s ease-in-out; /* Increased opacity duration */
+      transition: transform 0.5s ease-in-out, opacity 1s ease-in-out, border 0.3s ease-in-out;
       opacity: 0;
-      margin-top: 15px; /* Adjusted margin for better spacing */
+      margin-top: 15px;
     }
     .small-image.show {
       opacity: 1;
-      border: 3px solid #FFD700; /* Add a border to make it stand out */
+      border: 3px solid #FFD700;
     }
     .modal {
       display: none;
@@ -66,6 +63,7 @@ permalink: /page1.md/
       background-color: transparent;
       justify-content: center;
       align-items: center;
+      overflow: hidden; /* Hide overflow to prevent scrolling */
     }
     .modal-content {
       display: flex;
@@ -77,7 +75,7 @@ permalink: /page1.md/
     }
     @media only screen and (max-width: 768px) {
       .center-text {
-        font-size: 3vw; /* Adjusted font size for smaller screens */
+        font-size: 3vw;
       }
     }
   </style>
@@ -123,10 +121,9 @@ permalink: /page1.md/
         openModal();
       });
 
-      // Adding a small delay before adding the 'show' class to allow the fade-in effect
       setTimeout(function () {
         secondImage.classList.add('show');
-      }, 100);
+      }, 500); // Increased delay for a smoother effect
     });
   </script>
 </body>
