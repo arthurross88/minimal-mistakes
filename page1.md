@@ -11,6 +11,13 @@ permalink: /page1.md/
   <title>IESUS | The Sun God And The Flower Of Life</title>
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css" />
   <style>
+     .fullscreen-image.fade-out {
+      opacity: 1; /* Set initial opacity to 1 for fade-out effect */
+      transition: opacity 1s ease-in-out; /* Add transition for opacity */
+    }
+    .fullscreen-image.fade-out.show {
+      opacity: 0;
+    }
     html, body {
       height: 100%;
       margin: 0;
@@ -34,6 +41,11 @@ permalink: /page1.md/
       width: 100%;
       height: auto;
       object-fit: cover;
+      opacity: 0; /* Set initial opacity to 0 for fade-in effect */
+      transition: opacity 1s ease-in-out; /* Add transition for opacity */
+    }
+    .fullscreen-image.show {
+      opacity: 1;
     }
     .center-text {
       font-size: 1.5vw;
@@ -82,13 +94,12 @@ permalink: /page1.md/
 </head>
 
 <body>
-
   <div class="center-content">
     <div id="newText" style="display: block;">
       <img src="{{ site.baseurl }}/assets/images/gallery/second_image.jpg" alt="Description of Small Image" class="small-image" />
     </div>
     <div class="fullscreen-container">
-      <img src="{{ site.baseurl }}/assets/images/gallery/second_image.jpg" alt="Fullscreen Image" class="fullscreen-image fade-out" />
+      <img src="{{ site.baseurl }}/assets/images/gallery/second_image.jpg" alt="Fullscreen Image" class="fullscreen-image fade-out show" />
     </div>
     <div class="center-text">
       <h1>IESUS | The Sun God And The Flower Of Life</h1>
@@ -123,6 +134,8 @@ permalink: /page1.md/
 
       setTimeout(function () {
         secondImage.classList.add('show');
+        const fullscreenImage = document.querySelector(".fullscreen-image");
+        fullscreenImage.classList.add('show');
       }, 500); // Increased delay for a smoother effect
     });
   </script>
