@@ -139,7 +139,9 @@ sidebar:
       </a>
     </div>
   </div>
-<button onclick="openModal()">Give Feedback</button>  <!-- Scroll-up button -->
+<form onsubmit="sendFeedback(); return false;">
+  <button type="submit">Give Feedback</button>
+</form>
   <button id="scrollUpBtn" onclick="scrollToTop()">Scroll Up</button>
 
   <!-- Your existing scripts and body content -->
@@ -165,25 +167,29 @@ sidebar:
     var modal = document.getElementById("feedback-modal");
     modal.style.display = "none";
   }
-  function sendFeedback(feedback) {
-  var endpoint = 'http://localhost:3000/submit-feedback';
-  var xhr = new XMLHttpRequest();
-  xhr.open('POST', endpoint, true);
-  xhr.setRequestHeader('Content-Type', 'application/json');
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState == 4) {
-      if (xhr.status == 200) {
-        alert('Feedback submitted successfully!');
-        closeModal();
-      } else {
-        alert('Error submitting feedback. Please check the console for details.');
-        console.error(xhr.responseText); // Log the server response to the console
-      }
-    }
-  };
-  var data = JSON.stringify({ feedback: feedback });
-  xhr.send(data);
-}
+  function sendFeedback() {
+    var endpoint = 'http://localhost:3000/submit-feedback';
+    var feedback = 'Sample Feedback';  // Replace with actual feedback
+    fetch(endpoint, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ feedback: feedback }),
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Error submitting feedback');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Feedback submitted successfully:', data);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  }
 </script>
   <script>
     // Show/hide the scroll-up button based on scroll position

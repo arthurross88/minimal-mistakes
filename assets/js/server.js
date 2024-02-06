@@ -1,15 +1,25 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
+const cors = require('cors');
 
 const app = express();
 const port = 3000;
-const cors = require('cors');
-// ...
+
+// Enable CORS
 app.use(cors());
 
-
 app.use(bodyParser.json());
+
+// Handle GET requests to the root path
+app.get('/', (req, res) => {
+  res.send('Welcome to the Feedback Server. Use POST requests to submit feedback.');
+});
+
+// Handle GET requests to /submit-feedback
+app.get('/submit-feedback', (req, res) => {
+  res.send('This endpoint is for handling POST requests. Use POST to submit feedback.');
+});
 
 // Handle POST requests to /submit-feedback
 app.post('/submit-feedback', (req, res) => {
