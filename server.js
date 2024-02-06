@@ -9,7 +9,7 @@ const port = 3000;
 
 const options = {
   key: fs.readFileSync('keys/www.theeternalfireofthegods.com_key.txt'),
-  cert: fs.readFileSync('keys/www.theeternalfireofthegods.ca-bundle'),
+  cert: fs.readFileSync('keys/www.theeternalfireofthegods.com.ca-bundle'),
 };
 
 const server = https.createServer(options, app);
