@@ -157,18 +157,22 @@ sidebar:
   <button onclick="openModal()">Give Feedback</button>
   <button id="scrollUpBtn" onclick="scrollToTop()">Scroll Up</button>
   <div id="feedback-modal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal()">&times;</span>
-      <h2>How happy are you with the website?</h2>
-      <div id="feedback-buttons">
-        <button onclick="sendFeedback('Very Happy')">Very Happy</button>
-        <button onclick="sendFeedback('Happy')">Happy</button>
-        <button onclick="sendFeedback('Neutral')">Neutral</button>
-        <button onclick="sendFeedback('Unhappy')">Unhappy</button>
-        <button onclick="sendFeedback('Very Unhappy')">Very Unhappy</button>
-      </div>
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2>How happy are you with the website?</h2>
+    <div id="feedback-buttons">
+      <button onclick="sendFeedback('Very Happy', '😃')">Very Happy</button>
+      <button onclick="sendFeedback('Happy', '😊')">Happy</button>
+      <button onclick="sendFeedback('Neutral', '😐')">Neutral</button>
+      <button onclick="sendFeedback('Unhappy', '😞')">Unhappy</button>
+      <button onclick="sendFeedback('Very Unhappy', '😢')">Very Unhappy</button>
+    </div>
+    <div>
+      <label for="additionalComments">Additional Comments:</label>
+      <textarea id="additionalComments" rows="4" cols="50"></textarea>
     </div>
   </div>
+</div>
 <script>
   function openModal() {
     var modal = document.getElementById("feedback-modal");
@@ -178,9 +182,10 @@ sidebar:
     var modal = document.getElementById("feedback-modal");
     modal.style.display = "none";
   }
-  function sendFeedback(feedback) {
-    console.log('Sending feedback:', feedback);
-    var endpoint = 'https://localhost:3000/submit-feedback'; // Update the port accordingly
+  function sendFeedback(feedback, reaction) {
+    var additionalComments = document.getElementById("additionalComments").value;
+    console.log('Sending feedback:', feedback, 'Reaction:', reaction, 'Additional Comments:', additionalComments);
+    var endpoint = 'https://localhost:3000/submit-feedback';
     var xhr = new XMLHttpRequest();
     xhr.open('POST', endpoint, true);
     xhr.setRequestHeader('Content-Type', 'application/json');
@@ -196,7 +201,11 @@ sidebar:
         }
       }
     };
-    var data = JSON.stringify({ feedback: feedback });
+    var data = JSON.stringify({
+      feedback: feedback,
+      reaction: reaction,
+      additionalComments: additionalComments
+    });
     xhr.send(data);
   }
 </script>

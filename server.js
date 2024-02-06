@@ -39,17 +39,15 @@ app.get('/submit-feedback', (req, res) => {
 
 // Handle POST requests to /submit-feedback
 app.post('/submit-feedback', (req, res) => {
-  const feedback = req.body.feedback;
+  const { feedback, reaction, additionalComments } = req.body;
 
-  // Log the feedback to the console
+  // Log the received data (you can replace this with your desired processing logic)
   console.log('Received feedback:', feedback);
+  console.log('Reaction:', reaction);
+  console.log('Additional Comments:', additionalComments);
 
-  // Store the feedback in a file-based database (e.g., feedback.json)
-  const feedbackData = loadFeedbackData();
-  feedbackData.push({ feedback, timestamp: new Date() });
-  saveFeedbackData(feedbackData);
-
-  res.status(200).json({ message: 'Feedback received successfully' });
+  // Assuming you want to send a response back to the client
+  res.status(200).json({ message: 'Feedback received successfully!' });
 });
 
 // Load feedback data from the file
