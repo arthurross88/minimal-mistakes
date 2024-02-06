@@ -139,12 +139,8 @@ sidebar:
       </a>
     </div>
   </div>
-<form onsubmit="sendFeedback(); return false;">
-  <button type="submit">Give Feedback</button>
-</form>
+<button onclick="openModal()">Give Feedback</button>
   <button id="scrollUpBtn" onclick="scrollToTop()">Scroll Up</button>
-
-  <!-- Your existing scripts and body content -->
 <div id="feedback-modal" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeModal()">&times;</span>
@@ -167,49 +163,45 @@ sidebar:
     var modal = document.getElementById("feedback-modal");
     modal.style.display = "none";
   }
-  function sendFeedback() {
+  function sendFeedback(feedback) {
     var endpoint = 'http://localhost:3000/submit-feedback';
-    var feedback = 'Sample Feedback';  // Replace with actual feedback
-    fetch(endpoint, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ feedback: feedback }),
-    })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Error submitting feedback');
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', endpoint, true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState == 4) {
+        if (xhr.status == 200) {
+          alert('Feedback submitted successfully!');
+          closeModal();
+        } else {
+          alert('Error submitting feedback. Please check the console for details.');
+          console.error(xhr.responseText); // Log the server response to the console
         }
-        return response.json();
-      })
-      .then(data => {
-        console.log('Feedback submitted successfully:', data);
-      })
-      .catch(error => {
-        console.error('Error:', error);
-      });
+      }
+    };
+    var data = JSON.stringify({ feedback: feedback });
+    xhr.send(data);
   }
 </script>
   <script>
-    // Show/hide the scroll-up button based on scroll position
-    window.onscroll = function () {
-      showScrollUpButton();
-    };
-    function showScrollUpButton() {
-      var scrollUpBtn = document.getElementById("scrollUpBtn");
-      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        scrollUpBtn.style.display = "block";
-      } else {
-        scrollUpBtn.style.display = "none";
-      }
+  // Show/hide the scroll-up button based on scroll position
+  window.onscroll = function () {
+    showScrollUpButton();
+  };
+  function showScrollUpButton() {
+    var scrollUpBtn = document.getElementById("scrollUpBtn");
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      scrollUpBtn.style.display = "block";
+    } else {
+      scrollUpBtn.style.display = "none";
     }
-    // Scroll to the top function
-    function scrollToTop() {
-      document.body.scrollTop = 0; // For Safari
-      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
-    }
-  </script>
+  }
+  // Scroll to the top function
+  function scrollToTop() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
+  }
+</script>
 </body>
 
 </html>
