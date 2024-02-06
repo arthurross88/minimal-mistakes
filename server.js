@@ -10,7 +10,7 @@ const fs = require('fs');
 
 const options = {
   key: fs.readFileSync('keys/www.theeternalfireofthegods.com_key.txt'),
-  cert: fs.readFileSync('p/Users/mac/Desktop/minimal-mistakes/keys/www.theeternalfireofthegods.com.crt'),
+  cert: fs.readFileSync('keys/www.theeternalfireofthegods.com.crt'),
 };
 
 const server = https.createServer(options, app);
