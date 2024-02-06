@@ -17,6 +17,10 @@ sidebar:
 
   <style>
     /* Additional styles for better formatting */
+    body {
+      color: #FFD700 !important; /* Set the text color to yellow for the entire page */
+    }
+
     .image-gallery {
       display: flex;
       flex-wrap: wrap;
@@ -60,7 +64,7 @@ sidebar:
     }
 
     .golden-link {
-      color: #FFD700 !important; /* Set the text color to golden */
+      color: #FFD700 !important; /* Set the text color to yellow */
       text-decoration: none; /* Remove the default underline */
       font-weight: bold; /* Optionally set the font weight to bold */
     }
@@ -70,7 +74,7 @@ sidebar:
     }
 
     .golden-text {
-      color: #FFD700 !important; /* Set the text color to golden */
+      color: #FFD700 !important; /* Set the text color to yellow */
     }
 
     /* Styles for moving the request a quote to the side */
@@ -85,6 +89,7 @@ sidebar:
       border-radius: 5px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
+
     .modal {
       display: none;
       position: fixed;
@@ -96,11 +101,21 @@ sidebar:
     }
 
     .modal-content {
-      background-color: #fff;
+      background-color: #f8f8f8; /* Adjust background color to match your website */
+      color: #333; /* Adjust text color to match your website */
       margin: 15% auto;
       padding: 20px;
       border: 1px solid #888;
       width: 80%; /* Adjust the width as needed for responsiveness */
+    }
+
+    .modal-content textarea {
+      background-color: #333; /* Darken the background color of the textarea */
+      color: #fff; /* Adjust text color to match your website */
+    }
+
+    .feedback-text {
+      color: #FFD700; /* Set the text color to yellow */
     }
 
     .close {
@@ -131,6 +146,11 @@ sidebar:
         width: 100%;
       }
     }
+
+    /* Added style for selected feedback button */
+    .selected-feedback {
+      background-color: #FFD700 !important;
+    }
   </style>
 </head>
 
@@ -155,66 +175,119 @@ sidebar:
     </div>
   </div>
   <button onclick="openModal()">Give Feedback</button>
-  <button id="scrollUpBtn" onclick="scrollToTop()">Scroll Up</button>
+
+  <!-- Feedback Modal -->
   <div id="feedback-modal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <h2>How happy are you with the website?</h2>
-    <div id="feedback-buttons">
-      <button onclick="sendFeedback('Very Happy', '😃')">Very Happy</button>
-      <button onclick="sendFeedback('Happy', '😊')">Happy</button>
-      <button onclick="sendFeedback('Neutral', '😐')">Neutral</button>
-      <button onclick="sendFeedback('Unhappy', '😞')">Unhappy</button>
-      <button onclick="sendFeedback('Very Unhappy', '😢')">Very Unhappy</button>
-    </div>
-    <div>
-      <label for="additionalComments">Additional Comments:</label>
-      <textarea id="additionalComments" rows="4" cols="50"></textarea>
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2>How happy are you with the website?</h2>
+      <div id="feedback-buttons">
+        <button onclick="selectFeedback(this, 'Very Happy', '😃')">Very Happy</button>
+        <button onclick="selectFeedback(this, 'Happy', '😊')">Happy</button>
+        <button onclick="selectFeedback(this, 'Neutral', '😐')">Neutral</button>
+        <button onclick="selectFeedback(this, 'Unhappy', '😞')">Unhappy</button>
+        <button onclick="selectFeedback(this, 'Very Unhappy', '😢')">Very Unhappy</button>
+      </div>
+      <div>
+        <label for="additionalComments">Additional Comments:</label>
+        <textarea id="additionalComments" rows="4" cols="50"></textarea>
+      </div>
+      <button onclick="submitFeedback()">Submit Feedback</button>
     </div>
   </div>
-</div>
+  <p>Please tell us what you think. We appreciate your support!</p>
+  <!-- Scroll-up button -->
+  <button id="scrollUpBtn" onclick="scrollToTop()">Scroll to Top</button>
+
 <script>
   function openModal() {
     var modal = document.getElementById("feedback-modal");
     modal.style.display = "block";
   }
+
   function closeModal() {
     var modal = document.getElementById("feedback-modal");
     modal.style.display = "none";
   }
-  function sendFeedback(feedback, reaction) {
-    var additionalComments = document.getElementById("additionalComments").value;
-    console.log('Sending feedback:', feedback, 'Reaction:', reaction, 'Additional Comments:', additionalComments);
-    var endpoint = 'https://localhost:3000/submit-feedback';
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', endpoint, true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.onreadystatechange = function () {
-      if (xhr.readyState == 4) {
-        console.log('Server response:', xhr.status, xhr.responseText);
-        if (xhr.status == 200) {
-          alert('Feedback submitted successfully!');
-          closeModal();
-        } else {
-          alert('Error submitting feedback. Please check the console for details.');
-          console.error(xhr.responseText);
-        }
-      }
-    };
-    var data = JSON.stringify({
-      feedback: feedback,
-      reaction: reaction,
-      additionalComments: additionalComments
-    });
-    xhr.send(data);
-  }
-</script>
 
-  <script>
+  function sendFeedback(feedback, reaction, additionalComments) {
+  // Perform an AJAX request to submit feedback to the server
+  // Replace 'https://localhost:3000/submit-feedback' with the actual URL of your server-side route
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", 'https://localhost:3000/submit-feedback', true); // Use the correct URL
+  xhr.setRequestHeader("Content-Type", "application/json");
+
+  var data = {
+    feedback: feedback,
+    reaction: reaction,
+    additionalComments: additionalComments
+  };
+
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4) {
+      if (xhr.status === 200) {
+        console.log('Feedback submitted successfully');
+      } else {
+        console.error('Error submitting feedback:', xhr.status);
+      }
+    }
+  };
+
+  xhr.send(JSON.stringify(data));
+}
+
+  function selectFeedback(button, feedback, reaction) {
+    // Remove the selected class from all buttons
+    var feedbackButtons = document.querySelectorAll('#feedback-buttons button');
+    feedbackButtons.forEach(function (btn) {
+      btn.classList.remove('selected-feedback');
+    });
+
+    // Add the selected class to the clicked button
+    button.classList.add('selected-feedback');
+
+    // Log the selected feedback
+    console.log('Selected Feedback:', feedback, 'Reaction:', reaction);
+  }
+
+  // Function to close the modal
+  function closeModal() {
+    var modal = document.getElementById("feedback-modal");
+    modal.style.display = "none";
+  }
+
+  // Function to submit feedback
+  // Function to submit feedback
+function submitFeedback() {
+  var selectedButton = document.querySelector('#feedback-buttons button.selected-feedback');
+  var feedback = selectedButton ? selectedButton.textContent : '';
+  var reaction = selectedButton ? selectedButton.getAttribute('data-reaction') : '';
+  var additionalComments = document.getElementById("additionalComments").value;
+
+  console.log('Feedback:', feedback, 'Reaction:', reaction, 'Additional Comments:', additionalComments);
+
+  // Implement your actual feedback submission logic here
+  sendFeedback(feedback, reaction, additionalComments);
+
+  // Display a confirmation message
+  var confirmationMessage = document.createElement('p');
+  confirmationMessage.innerText = 'Thank you for your feedback!';
+
+  // Append the message to the modal content
+  var modalContent = document.querySelector('.modal-content');
+  modalContent.appendChild(confirmationMessage);
+
+  // Close the modal after submission (optional)
+  setTimeout(function () {
+    closeModal();
+  }, 2000); // Close the modal after 2 seconds (adjust the delay as needed)
+}
+
   // Show/hide the scroll-up button based on scroll position
   window.onscroll = function () {
     showScrollUpButton();
   };
+
   function showScrollUpButton() {
     var scrollUpBtn = document.getElementById("scrollUpBtn");
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
@@ -223,6 +296,7 @@ sidebar:
       scrollUpBtn.style.display = "none";
     }
   }
+
   // Scroll to the top function
   function scrollToTop() {
     document.body.scrollTop = 0; // For Safari
