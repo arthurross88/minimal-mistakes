@@ -1,12 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const https = require('https');
+const fs = require('fs');
 
 const app = express();
 const port = 3000;
-
-const https = require('https');
-const fs = require('fs');
 
 const options = {
   key: fs.readFileSync('keys/www.theeternalfireofthegods.com_key.txt'),
@@ -14,15 +13,19 @@ const options = {
 };
 
 const server = https.createServer(options, app);
-server.listen(port, () => {
-  console.log(`Server is running on https://localhost:${port}`);
-});
-
 
 // Enable CORS
 app.use(cors());
 
 app.use(bodyParser.json());
+
+// Redirect HTTP to HTTPS
+app.use((req, res, next) => {
+  if (!req.secure) {
+    return res.redirect(`https://${req.get('host')}${req.url}`);
+  }
+  next();
+});
 
 // Handle GET requests to the root path
 app.get('/', (req, res) => {
@@ -65,6 +68,6 @@ function saveFeedbackData(data) {
 }
 
 // Start the server
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+server.listen(port, () => {
+  console.log(`Server is running on https://localhost:${port}`);
 });
