@@ -164,18 +164,20 @@ sidebar:
     modal.style.display = "none";
   }
   function sendFeedback(feedback) {
-    var endpoint = '/submit-feedback';
+    console.log('Sending feedback:', feedback);
+    var endpoint = 'https://localhost:3000/submit-feedback'; // Update the port accordingly
     var xhr = new XMLHttpRequest();
     xhr.open('POST', endpoint, true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onreadystatechange = function () {
       if (xhr.readyState == 4) {
+        console.log('Server response:', xhr.status, xhr.responseText);
         if (xhr.status == 200) {
           alert('Feedback submitted successfully!');
           closeModal();
         } else {
           alert('Error submitting feedback. Please check the console for details.');
-          console.error(xhr.responseText); // Log the server response to the console
+          console.error(xhr.responseText);
         }
       }
     };
@@ -183,6 +185,7 @@ sidebar:
     xhr.send(data);
   }
 </script>
+
   <script>
   // Show/hide the scroll-up button based on scroll position
   window.onscroll = function () {
