@@ -39,7 +39,7 @@ sidebar:
     }
 
     #scrollUpBtn:hover {
-      background-color: #ffd700; /* Change color on hover */
+      background-color: #FFD700; /* Change color on hover */
     }
 
     .image-item {
@@ -60,7 +60,7 @@ sidebar:
     }
 
     .golden-link {
-      color: #daa520 !important; /* Set the text color to golden */
+      color: #FFD700 !important; /* Set the text color to golden */
       text-decoration: none; /* Remove the default underline */
       font-weight: bold; /* Optionally set the font weight to bold */
     }
@@ -70,7 +70,7 @@ sidebar:
     }
 
     .golden-text {
-      color: #daa520 !important; /* Set the text color to golden */
+      color: #FFD700 !important; /* Set the text color to golden */
     }
 
     /* Styles for moving the request a quote to the side */
@@ -84,6 +84,37 @@ sidebar:
       padding: 20px;
       border-radius: 5px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 50%;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -108,18 +139,56 @@ sidebar:
       </a>
     </div>
   </div>
-
-  <!-- Scroll-up button -->
+<button onclick="openModal()">Give Feedback</button>  <!-- Scroll-up button -->
   <button id="scrollUpBtn" onclick="scrollToTop()">Scroll Up</button>
 
   <!-- Your existing scripts and body content -->
-
+<div id="feedback-modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2>How happy are you with the website?</h2>
+    <div id="feedback-buttons">
+      <button onclick="sendFeedback('Very Happy')">Very Happy</button>
+      <button onclick="sendFeedback('Happy')">Happy</button>
+      <button onclick="sendFeedback('Neutral')">Neutral</button>
+      <button onclick="sendFeedback('Unhappy')">Unhappy</button>
+      <button onclick="sendFeedback('Very Unhappy')">Very Unhappy</button>
+    </div>
+  </div>
+</div>
+<script>
+  function openModal() {
+    var modal = document.getElementById("feedback-modal");
+    modal.style.display = "block";
+  }
+  function closeModal() {
+    var modal = document.getElementById("feedback-modal");
+    modal.style.display = "none";
+  }
+  function sendFeedback(feedback) {
+  var endpoint = 'http://localhost:3000/submit-feedback';
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', endpoint, true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4) {
+      if (xhr.status == 200) {
+        alert('Feedback submitted successfully!');
+        closeModal();
+      } else {
+        alert('Error submitting feedback');
+      }
+    }
+  };
+  var data = JSON.stringify({ feedback: feedback });
+  xhr.send(data);
+}
+</script>
   <script>
     // Show/hide the scroll-up button based on scroll position
     window.onscroll = function () {
       showScrollUpButton();
     };
-
     function showScrollUpButton() {
       var scrollUpBtn = document.getElementById("scrollUpBtn");
       if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
@@ -128,7 +197,6 @@ sidebar:
         scrollUpBtn.style.display = "none";
       }
     }
-
     // Scroll to the top function
     function scrollToTop() {
       document.body.scrollTop = 0; // For Safari
