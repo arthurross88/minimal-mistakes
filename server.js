@@ -1,10 +1,23 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const fs = require('fs');
 const cors = require('cors');
 
 const app = express();
 const port = 3000;
+
+const https = require('https');
+const fs = require('fs');
+
+const options = {
+  key: fs.readFileSync('keys/www.theeternalfireofthegods.com_key.txt'),
+  cert: fs.readFileSync('p/Users/mac/Desktop/minimal-mistakes/keys/www.theeternalfireofthegods.com.crt'),
+};
+
+const server = https.createServer(options, app);
+server.listen(port, () => {
+  console.log(`Server is running on https://localhost:${port}`);
+});
+
 
 // Enable CORS
 app.use(cors());
