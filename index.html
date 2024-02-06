@@ -1,9 +1,6 @@
 ---
 layout: home
 ---
-
-<!-- ... same as before ... -->
-
 <style>
   .fade-out-element {
     display: flex;
@@ -23,8 +20,15 @@ layout: home
       text-align: center; /* Center text on smaller screens */
     }
 
+    .intro-text h1 {
+      color: yellow; /* Text color */
+      border: 2px solid red; /* Scarlet (red) border */
+      padding: 10px; /* Add padding for better visibility */
+      display: inline-block; /* Prevent border from stretching the entire width */
+    }
+
     .fullscreen-image {
-      max-width: 100%; /* Ensure image doesn't overflow on small screens */
+      max-width: 100%; /* Ensure the image doesn't overflow on small screens */
       height: auto; /* Maintain aspect ratio */
     }
   }
@@ -40,7 +44,12 @@ layout: home
     height: 100%;
     object-fit: cover; /* Ensure the image covers the entire container */
   }
+
+  .fullscreen-image.fade-out {
+    transition: opacity 2s ease; /* Adjust the duration (2s for a slower effect) */
+  }
 </style>
+
 
 <head>
   <!-- other head elements -->
@@ -51,7 +60,7 @@ layout: home
     <div class="fullscreen-container">
       <div class="fade-out-element">
         <img
-          src="{{ site.baseurl }}/assets/images/gallery/halo.jpeg"
+          src="{{ site.baseurl }}/assets/images/gallery/eagle_and_crow.jpeg"
           alt="Fullscreen Image"
           class="fullscreen-image fade-out"
         />
