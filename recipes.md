@@ -100,7 +100,7 @@ sidebar:
       margin: 15% auto;
       padding: 20px;
       border: 1px solid #888;
-      width: 50%;
+      width: 80%; /* Adjust the width as needed for responsiveness */
     }
 
     .close {
@@ -115,6 +115,21 @@ sidebar:
       color: black;
       text-decoration: none;
       cursor: pointer;
+    }
+
+    /* Responsive styles */
+    @media only screen and (max-width: 768px) {
+      .image-gallery {
+        justify-content: center;
+      }
+
+      .image-item {
+        width: 100%;
+      }
+
+      .modal-content {
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -139,21 +154,21 @@ sidebar:
       </a>
     </div>
   </div>
-<button onclick="openModal()">Give Feedback</button>
+  <button onclick="openModal()">Give Feedback</button>
   <button id="scrollUpBtn" onclick="scrollToTop()">Scroll Up</button>
-<div id="feedback-modal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <h2>How happy are you with the website?</h2>
-    <div id="feedback-buttons">
-      <button onclick="sendFeedback('Very Happy')">Very Happy</button>
-      <button onclick="sendFeedback('Happy')">Happy</button>
-      <button onclick="sendFeedback('Neutral')">Neutral</button>
-      <button onclick="sendFeedback('Unhappy')">Unhappy</button>
-      <button onclick="sendFeedback('Very Unhappy')">Very Unhappy</button>
+  <div id="feedback-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2>How happy are you with the website?</h2>
+      <div id="feedback-buttons">
+        <button onclick="sendFeedback('Very Happy')">Very Happy</button>
+        <button onclick="sendFeedback('Happy')">Happy</button>
+        <button onclick="sendFeedback('Neutral')">Neutral</button>
+        <button onclick="sendFeedback('Unhappy')">Unhappy</button>
+        <button onclick="sendFeedback('Very Unhappy')">Very Unhappy</button>
+      </div>
     </div>
   </div>
-</div>
 <script>
   function openModal() {
     var modal = document.getElementById("feedback-modal");
