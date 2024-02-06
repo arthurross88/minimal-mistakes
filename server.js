@@ -1,8 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const fs = require('fs');
 
 const app = express();
-const port = 3000; // Choose a port for your server
+const port = 3000;
 
 app.use(bodyParser.json());
 
@@ -10,11 +11,31 @@ app.use(bodyParser.json());
 app.post('/submit-feedback', (req, res) => {
   const feedback = req.body.feedback;
 
-  // Process the feedback (you can store it in a database, log it, etc.)
+  // Log the feedback to the console
   console.log('Received feedback:', feedback);
+
+  // Store the feedback in a file-based database (e.g., feedback.json)
+  const feedbackData = loadFeedbackData();
+  feedbackData.push({ feedback, timestamp: new Date() });
+  saveFeedbackData(feedbackData);
 
   res.status(200).json({ message: 'Feedback received successfully' });
 });
+
+// Load feedback data from the file
+function loadFeedbackData() {
+  try {
+    const data = fs.readFileSync('feedback.json', 'utf-8');
+    return JSON.parse(data);
+  } catch (error) {
+    return [];
+  }
+}
+
+// Save feedback data to the file
+function saveFeedbackData(data) {
+  fs.writeFileSync('feedback.json', JSON.stringify(data, null, 2), 'utf-8');
+}
 
 // Start the server
 app.listen(port, () => {
