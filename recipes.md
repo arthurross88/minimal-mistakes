@@ -164,7 +164,7 @@ sidebar:
     modal.style.display = "none";
   }
   function sendFeedback(feedback) {
-    var endpoint = 'http://localhost:3000/submit-feedback';
+    var endpoint = '/submit-feedback';
     var xhr = new XMLHttpRequest();
     xhr.open('POST', endpoint, true);
     xhr.setRequestHeader('Content-Type', 'application/json');
