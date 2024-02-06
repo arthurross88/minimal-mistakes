@@ -33,6 +33,7 @@
     "build:js": "npm run uglify && npm run add-banner"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.18.2"
   }
 }

@@ -176,7 +176,8 @@ sidebar:
         alert('Feedback submitted successfully!');
         closeModal();
       } else {
-        alert('Error submitting feedback');
+        alert('Error submitting feedback. Please check the console for details.');
+        console.error(xhr.responseText); // Log the server response to the console
       }
     }
   };
