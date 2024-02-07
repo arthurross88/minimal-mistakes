@@ -159,7 +159,7 @@ sidebar:
   <div class="image-gallery">
     <div class="image-item">
       <a href="/page1.md/" class="golden-link">
-        <img src="/assets/images/gallery/jesus.jpg" alt="Image 1" />
+        <img src="/assets/images/gallery/jesus.jpg" alt="Iesus" />
         <div class="image-caption">
           <p class="golden-text">IESUS | The Sun God And The Flower Of Life (16.02.2018)</p>
         </div>
@@ -167,13 +167,21 @@ sidebar:
     </div>
     <div class="image-item">
       <a href="/page2.md/" class="golden-link">
-        <img src="/assets/images/gallery/halo.jpeg" alt="Image 2" />
+        <img src="/assets/images/gallery/halo.jpeg" alt="Sun" />
         <div class="image-caption">
           <p class="golden-text">Here Comes The Sun - Sounding That Fiery Spring Equinox (19.10.2020)</p>
         </div>
       </a>
     </div>
   </div>
+  <div class="image-item">
+      <a href="/page3.md/" class="golden-link">
+        <img src="/assets/images/gallery/garden.jpeg" alt="Trees" />
+        <div class="image-caption">
+          <p class="golden-text">Them Trees And Waters Preparing Highest Frequencies For The Landing Of The Seraphim (Thé Déjà Vu Version, Pianíssimo Grandissimo Claro) (10.06.2021)</p>
+        </div>
+      </a>
+    </div>
   <button onclick="openModal()">Give Feedback</button>
 
   <!-- Feedback Modal -->
@@ -195,7 +203,7 @@ sidebar:
       <button onclick="submitFeedback()">Submit Feedback</button>
     </div>
   </div>
-  <p>Please tell us what you think. We appreciate your support!</p>
+  <p>Please tell us what you think of the website. We appreciate your support!</p>
   <!-- Scroll-up button -->
   <button id="scrollUpBtn" onclick="scrollToTop()">Scroll to Top</button>
 
