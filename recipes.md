@@ -10,6 +10,7 @@ sidebar:
     image_alt: "logo"
     text: "Artist"
 ---
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -173,8 +174,7 @@ sidebar:
         </div>
       </a>
     </div>
-  </div>
-  <div class="image-item">
+    <div class="image-item">
       <a href="/page3.md/" class="golden-link">
         <img src="/assets/images/gallery/garden.jpeg" alt="Trees" />
         <div class="image-caption">
@@ -182,6 +182,16 @@ sidebar:
         </div>
       </a>
     </div>
+    <div class="image-item">
+      <a href="/page4.md/" class="golden-link">
+        <img src="/assets/images/gallery/guardian.jpeg" alt="Guardians" />
+        <div class="image-caption">
+          <p class="golden-text">The Enlightened Guardians Of The Emerald Tablet Holding The "Solve et Coagula" As Above So Below (18.03.2021)</p>
+        </div>
+      </a>
+    </div>
+  </div>
+
   <button onclick="openModal()">Give Feedback</button>
 
   <!-- Feedback Modal -->
@@ -203,114 +213,15 @@ sidebar:
       <button onclick="submitFeedback()">Submit Feedback</button>
     </div>
   </div>
+
   <p>Please tell us what you think of the website. We appreciate your support!</p>
+
   <!-- Scroll-up button -->
   <button id="scrollUpBtn" onclick="scrollToTop()">Scroll to Top</button>
 
-<script>
-  function openModal() {
-    var modal = document.getElementById("feedback-modal");
-    modal.style.display = "block";
-  }
-
-  function closeModal() {
-    var modal = document.getElementById("feedback-modal");
-    modal.style.display = "none";
-  }
-
-  function sendFeedback(feedback, reaction, additionalComments) {
-  // Perform an AJAX request to submit feedback to the server
-  // Replace 'https://localhost:3000/submit-feedback' with the actual URL of your server-side route
-  var xhr = new XMLHttpRequest();
-  xhr.open("POST", 'https://localhost:3000/submit-feedback', true); // Use the correct URL
-  xhr.setRequestHeader("Content-Type", "application/json");
-
-  var data = {
-    feedback: feedback,
-    reaction: reaction,
-    additionalComments: additionalComments
-  };
-
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4) {
-      if (xhr.status === 200) {
-        console.log('Feedback submitted successfully');
-      } else {
-        console.error('Error submitting feedback:', xhr.status);
-      }
-    }
-  };
-
-  xhr.send(JSON.stringify(data));
-}
-
-  function selectFeedback(button, feedback, reaction) {
-    // Remove the selected class from all buttons
-    var feedbackButtons = document.querySelectorAll('#feedback-buttons button');
-    feedbackButtons.forEach(function (btn) {
-      btn.classList.remove('selected-feedback');
-    });
-
-    // Add the selected class to the clicked button
-    button.classList.add('selected-feedback');
-
-    // Log the selected feedback
-    console.log('Selected Feedback:', feedback, 'Reaction:', reaction);
-  }
-
-  // Function to close the modal
-  function closeModal() {
-    var modal = document.getElementById("feedback-modal");
-    modal.style.display = "none";
-  }
-
-  // Function to submit feedback
-  // Function to submit feedback
-function submitFeedback() {
-  var selectedButton = document.querySelector('#feedback-buttons button.selected-feedback');
-  var feedback = selectedButton ? selectedButton.textContent : '';
-  var reaction = selectedButton ? selectedButton.getAttribute('data-reaction') : '';
-  var additionalComments = document.getElementById("additionalComments").value;
-
-  console.log('Feedback:', feedback, 'Reaction:', reaction, 'Additional Comments:', additionalComments);
-
-  // Implement your actual feedback submission logic here
-  sendFeedback(feedback, reaction, additionalComments);
-
-  // Display a confirmation message
-  var confirmationMessage = document.createElement('p');
-  confirmationMessage.innerText = 'Thank you for your feedback!';
-
-  // Append the message to the modal content
-  var modalContent = document.querySelector('.modal-content');
-  modalContent.appendChild(confirmationMessage);
-
-  // Close the modal after submission (optional)
-  setTimeout(function () {
-    closeModal();
-  }, 2000); // Close the modal after 2 seconds (adjust the delay as needed)
-}
-
-  // Show/hide the scroll-up button based on scroll position
-  window.onscroll = function () {
-    showScrollUpButton();
-  };
-
-  function showScrollUpButton() {
-    var scrollUpBtn = document.getElementById("scrollUpBtn");
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-      scrollUpBtn.style.display = "block";
-    } else {
-      scrollUpBtn.style.display = "none";
-    }
-  }
-
-  // Scroll to the top function
-  function scrollToTop() {
-    document.body.scrollTop = 0; // For Safari
-    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
-  }
-</script>
+  <script>
+    // Your existing JavaScript functions go here
+  </script>
 </body>
 
 </html>
