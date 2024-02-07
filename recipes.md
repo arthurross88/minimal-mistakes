@@ -10,7 +10,6 @@ sidebar:
     image_alt: "logo"
     text: "Artist"
 ---
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
