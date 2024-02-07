@@ -8,7 +8,7 @@ const app = express();
 const port = 3000;
 
 const options = {
-  key: fs.readFileSync('keys/www.theeternalfireofthegods.com_key.txt'),
+  key: fs.readFileSync('/Users/mac/Desktop/www.theeternalfireofthegods.com_key.txt'),
   cert: fs.readFileSync('keys/www.theeternalfireofthegods.com.crt'),
 };
 
