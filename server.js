@@ -26,7 +26,11 @@ db.once('open', () => {
 });
 
 // Enable CORS
-app.use(cors());
+app.use(cors({
+  origin: 'https://your-frontend-domain.com',
+  optionsSuccessStatus: 200,
+}));
+
 
 // Parse incoming JSON requests
 app.use(bodyParser.json());
@@ -43,7 +47,8 @@ const Feedback = mongoose.model('Feedback', feedbackSchema);
 
 // Redirect HTTP to HTTPS middleware
 app.use((req, res, next) => {
-  if (!req.secure) {
+  const forwardedProto = req.get('X-Forwarded-Proto');
+  if (forwardedProto !== 'https' && !req.secure) {
     return res.redirect(`https://${req.get('host')}${req.url}`);
   }
   next();
