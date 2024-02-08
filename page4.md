@@ -153,7 +153,7 @@ permalink: /page4.md/
     <div class="center-text">
       <p>Within the series: Light & Emerald Tablet Kaleidoscope
 
-Fantastic photography of Roman Olympic Player sculpture by: Sandro Lombardo <a href="https://www.flickr.com/photos/sandrovet/" target="_blank">Sandro Lombardo's Flickr</a>
+Fantastic photography of Roman Olympic Player sculpture by:  <a href="https://www.flickr.com/photos/sandrovet/" target="_blank">Sandro Lombardo</a>
 
 Sculptor of incredible sculpture(s) standing at the Stadio Dei Marmi al Foro Italico, Roma: Aroldo Bellini
 

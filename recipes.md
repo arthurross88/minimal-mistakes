@@ -93,21 +93,23 @@ sidebar:
     .modal {
       display: none;
       position: fixed;
-      top: 0;
-      left: 0;
+      top: auto;
+      right: 0; /* Stick to the right */
+      bottom: 0;
+      left: auto; /* Unset left */
       width: 100%;
       height: 100%;
       background-color: rgba(0, 0, 0, 0.5);
     }
 
     .modal-content {
-      background-color: #f8f8f8; /* Adjust background color to match your website */
-      color: #333; /* Adjust text color to match your website */
-      margin: 15% auto;
-      padding: 20px;
-      border: 1px solid #888;
-      width: 80%; /* Adjust the width as needed for responsiveness */
-    }
+  background-color: #f8f8f8; /* Adjust background color to match your website */
+  color: #333; /* Adjust text color to match your website */
+  margin: 15% auto; /* Updated margin for centering vertically and horizontally */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Adjust the width as needed for responsiveness */
+}
 
     .modal-content textarea {
       background-color: #333; /* Darken the background color of the textarea */
