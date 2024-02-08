@@ -232,13 +232,13 @@ sidebar:
   // Perform an AJAX request to submit feedback to the server
   // Replace 'https://localhost:3000/submit-feedback' with the actual URL of your server-side route
   var xhr = new XMLHttpRequest();
-  xhr.open("POST", 'https://84.104.240.232:3000/submit-feedback', true); // Use the correct URL
-  xhr.setRequestHeader("Content-Type", "application/json");
-  var data = {
-    feedback: feedback,
-    reaction: reaction,
-    additionalComments: additionalComments
-  };
+xhr.open("POST", 'https://theeternalfireofthegods:3000/submit-feedback', true); // Use the correct URL
+xhr.setRequestHeader("Content-Type", "application/json");
+var data = {
+  feedback: feedback,
+  reaction: reaction,
+  additionalComments: additionalComments
+};
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4) {
       if (xhr.status === 200) {
