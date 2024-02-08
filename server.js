@@ -27,7 +27,7 @@ db.once('open', () => {
 
 // Enable CORS
 app.use(cors({
-  origin: 'https://your-frontend-domain.com',
+  origin: 'https://www.theeternalfireofthegods.com',
   optionsSuccessStatus: 200,
 }));
 
