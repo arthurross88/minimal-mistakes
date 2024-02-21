@@ -19,6 +19,7 @@ sidebar:
     /* Additional styles for better formatting */
     body {
       color: #FFD700 !important; /* Set the text color to yellow for the entire page */
+          background-color: #000 !important; /* Set the background color to black for the entire page */
     }
 
     .image-gallery {

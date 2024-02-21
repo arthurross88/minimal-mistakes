@@ -12,10 +12,11 @@ permalink: /page2.md/
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css" />
   <style>
     body, html {
-      height: 100%;
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #000; /* Set the background color to black */
+  }
   .back-to-gallery {
     display: inline-block;
     margin-top: 20px;
